@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tablet/routes/index.dart';
-import 'package:tablet/style/theme/universal.dart';
+import 'package:tablet/style/theme/color.dart';
 
 void main() {
   runApp(GetMaterialApp(
@@ -9,9 +9,5 @@ void main() {
     initialRoute: '/',
     getPages: appRoutes,
     theme: universal,
-    // theme: ThemeData(
-    //   primaryColor: const Color(0xFFFFB800),
-    //   // primarySwatch: Colors.red,
-    // ),
   ));
 }
