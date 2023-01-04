@@ -38,6 +38,11 @@ class Home extends StatelessWidget {
                 Get.toNamed('/other', arguments: {'title': '路由传参'}),
           ),
           ElevatedButton(
+            child: const Text('go to icons'),
+            // 只需简单的 Get.to 即可跳转路由
+            onPressed: () => Get.toNamed('/icons'),
+          ),
+          ElevatedButton(
               onPressed: () {
                 Get.snackbar('I am snackbar', 'i am message');
               },
