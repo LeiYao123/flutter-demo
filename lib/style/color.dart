@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-ThemeData customeTheme = ThemeData(
+ThemeData customTheme = ThemeData(
   primaryColor: const Color(0xFFFFB800),
   primarySwatch: createMaterialColor(const Color(0xFFFFB800)),
 );

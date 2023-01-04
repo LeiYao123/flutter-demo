@@ -8,6 +8,6 @@ void main() {
     debugShowCheckedModeBanner: false,
     initialRoute: '/',
     getPages: appRoutes,
-    theme: customeTheme,
+    theme: customTheme,
   ));
 }
