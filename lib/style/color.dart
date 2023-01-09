@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 ThemeData customTheme = ThemeData(
   primaryColor: const Color(0xFFFFB800),
   primarySwatch: createMaterialColor(const Color(0xFFFFB800)),
+  // 去掉 TextButton 的水波纹效果
+  // elevatedButtonTheme: const ElevatedButtonThemeData(
+  //     style: ButtonStyle(splashFactory: NoSplash.splashFactory)),
 );
 
 // 自定义主题色 https://medium.com/@nickysong/creating-a-custom-color-swatch-in-flutter-554bcdcb27f3
@@ -30,6 +33,9 @@ MaterialColor createMaterialColor(Color color) {
 class RuColor {
   static Color white = Colors.white;
   static Color gray = const Color(0xFFCCCCCC);
+  static Color black = const Color(0xFF000016);
   static Color blue = Colors.blue;
+  static Color red = Colors.red;
+  static Color yellow = const Color(0xFFFFB800);
   static Color green = const Color.fromRGBO(3, 201, 169, 1);
 }

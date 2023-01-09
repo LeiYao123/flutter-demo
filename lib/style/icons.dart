@@ -5,7 +5,7 @@ class RuIcons {
   static SvgPicture svg(
     String svgName, {
     bool noColor = false,
-    double size = 32,
+    double size = 20,
     Color? color = const Color(0xFF181818),
   }) {
     final String svgPath = "assets/icons/$svgName.svg";
