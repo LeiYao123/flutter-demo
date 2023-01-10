@@ -61,11 +61,11 @@ class _PhoneFormState extends State<PhoneForm> {
                 },
               ),
         Container(
-          width: double.infinity,
           margin: const EdgeInsets.only(top: 16, bottom: 8),
           child: RuButton(
             currMode == 'phone' ? 'Send code' : 'Sign in',
             loading: isLoading,
+            isBlock: true,
             onPressed: handleGetCode,
           ),
         ),

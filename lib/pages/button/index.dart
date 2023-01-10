@@ -123,22 +123,13 @@ class ButtonPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16.0),
-            Flex(
-              direction: Axis.horizontal,
+            Row(
               children: [
-                RuButton(
-                  'primary',
-                  size: BtnSizeEnum.lg,
-                  color: BtnColorEnum.primary,
-                  onPressed: () {},
-                ),
+                RuButton('primary', onPressed: () {}),
+                const SizedBox(width: 32),
                 Expanded(
-                    child: RuButton(
-                  'primary',
-                  size: BtnSizeEnum.lg,
-                  color: BtnColorEnum.primary,
-                  onPressed: () {},
-                )),
+                  child: RuButton('primary', isBlock: true, onPressed: () {}),
+                ),
               ],
             ),
             const Text.rich(TextSpan(children: [
@@ -161,7 +152,8 @@ class ButtonPage extends StatelessWidget {
                     bgColor: RuColor.green,
                     onPressed: () {}),
               ],
-            )
+            ),
+            RuButton('独占一行的button', isBlock: true, onPressed: () {})
           ],
         ),
       ),

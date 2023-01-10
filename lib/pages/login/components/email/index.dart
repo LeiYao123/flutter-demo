@@ -48,10 +48,10 @@ class _EmailFormState extends State<EmailForm> {
           },
         ),
         Container(
-          width: double.infinity,
           margin: const EdgeInsets.only(top: 16, bottom: 8),
           child: RuButton(
             'Sign in',
+            isBlock: true,
             onPressed: handleSubmit,
           ),
         ),

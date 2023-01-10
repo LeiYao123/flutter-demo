@@ -34,6 +34,7 @@ class RuButton extends StatelessWidget {
   final BtnColorEnum color;
   final BtnSizeEnum size;
   final bool isOutlined;
+  final bool isBlock; // 是否独占一行
   final bool disabled;
   final bool loading;
   final Widget? iconBefore;
@@ -45,6 +46,7 @@ class RuButton extends StatelessWidget {
     super.key,
     this.color = BtnColorEnum.primary,
     this.isOutlined = false,
+    this.isBlock = false,
     this.size = BtnSizeEnum.md,
     this.disabled = false,
     this.loading = false,
@@ -88,10 +90,6 @@ class RuButton extends StatelessWidget {
     return btnChildren;
   }
 
-  Map getBtnProps() {
-    return {};
-  }
-
   @override
   Widget build(BuildContext context) {
     final bgColor = backgroundColorMap[color];
@@ -103,10 +101,14 @@ class RuButton extends StatelessWidget {
       fontSize: fontSizeMap[size],
     );
     final padding = EdgeInsets.fromLTRB(
-        paddingSizeMap[size]![0],
-        paddingSizeMap[size]![1],
-        paddingSizeMap[size]![0],
-        paddingSizeMap[size]![1]);
+      paddingSizeMap[size]![0],
+      paddingSizeMap[size]![1],
+      paddingSizeMap[size]![0],
+      paddingSizeMap[size]![1],
+    );
+    // 是否独占一行
+    final mainAxisSize = isBlock ? MainAxisSize.max : MainAxisSize.min;
+    final onClick = disabled ? null : onPressed;
 
     if (isOutlined) {
       return OutlinedButton(
@@ -122,9 +124,10 @@ class RuButton extends StatelessWidget {
           textStyle: textStyle,
           padding: padding,
         ),
-        onPressed: disabled ? null : onPressed,
+        onPressed: onClick,
         child: Row(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: mainAxisSize,
           children: _getChildren(),
         ),
       );
@@ -137,17 +140,18 @@ class RuButton extends StatelessWidget {
         shape: shape,
         textStyle: textStyle,
         padding: padding,
-        // minimumSize: Size(double.infinity, 40),
       ),
-      onPressed: disabled ? null : onPressed,
+      onPressed: onClick,
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: mainAxisSize,
         children: _getChildren(),
       ),
     );
   }
 }
 
+// Icon button 组件
 class RuIconButton extends StatelessWidget {
   final Widget icon;
   final Color bgColor;

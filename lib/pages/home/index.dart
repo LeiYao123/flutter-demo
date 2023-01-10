@@ -53,6 +53,11 @@ class Home extends StatelessWidget {
             onPressed: () => Get.toNamed('/button'),
           ),
           ElevatedButton(
+            child: const Text('go to test page'),
+            // 只需简单的 Get.to 即可跳转路由
+            onPressed: () => Get.toNamed('/test'),
+          ),
+          ElevatedButton(
               onPressed: () {
                 Get.snackbar('I am snackbar', 'i am message');
               },
