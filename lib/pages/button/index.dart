@@ -141,7 +141,13 @@ class ButtonPage extends StatelessWidget {
                 )),
               ],
             ),
-            TextButton(onPressed: () {}, child: const Text('text button')),
+            const Text.rich(TextSpan(children: [
+              TextSpan(text: "Home: "),
+              TextSpan(
+                text: "https://flutterchina.club",
+                style: TextStyle(color: Colors.blue),
+              ),
+            ])),
             Row(
               children: [
                 RuIconButton(

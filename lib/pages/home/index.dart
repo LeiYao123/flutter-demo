@@ -43,6 +43,11 @@ class Home extends StatelessWidget {
             onPressed: () => Get.toNamed('/icons'),
           ),
           ElevatedButton(
+            child: const Text('go to login page'),
+            // 只需简单的 Get.to 即可跳转路由
+            onPressed: () => Get.toNamed('/login'),
+          ),
+          ElevatedButton(
             child: const Text('go to button'),
             // 只需简单的 Get.to 即可跳转路由
             onPressed: () => Get.toNamed('/button'),

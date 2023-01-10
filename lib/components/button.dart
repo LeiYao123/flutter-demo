@@ -97,7 +97,7 @@ class RuButton extends StatelessWidget {
     final bgColor = backgroundColorMap[color];
     final fgColor = foregroundColorMap[color];
     final shape =
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(40));
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0));
     final textStyle = TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: fontSizeMap[size],
@@ -137,6 +137,7 @@ class RuButton extends StatelessWidget {
         shape: shape,
         textStyle: textStyle,
         padding: padding,
+        // minimumSize: Size(double.infinity, 40),
       ),
       onPressed: disabled ? null : onPressed,
       child: Row(
