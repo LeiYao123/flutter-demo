@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:tablet/style/color.dart';
 import './components/phone/index.dart';
 import './components/email/index.dart';
 
@@ -15,21 +17,26 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('assets/image/rushable-full.png', height: 60),
-            Card(
-              elevation: 0,
-              margin: const EdgeInsets.only(top: 20),
+      backgroundColor: RuColor.white,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        // stretch 交叉轴铺满解决 Column 交叉轴默认为其本身大小,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Image.asset('assets/image/rushable-full.png', height: 60),
+          Center(
+            child: Card(
+              elevation: 10,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              margin: const EdgeInsets.only(top: 36),
               child: Container(
                 width: 500,
                 padding: const EdgeInsets.all(32.0),
                 child: Column(children: [
                   Row(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
                         child: RadioListTile(
@@ -64,8 +71,8 @@ class _LoginPageState extends State<LoginPage> {
                 ]),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
