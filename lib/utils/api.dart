@@ -22,7 +22,10 @@ class Http {
     addInterceptors(_dio);
   }
   // 暴露方法获取 dio 实例
-  static Dio getDio() => _dio;
+  static Dio get dio {
+    Http._init();
+    return _dio;
+  }
 }
 
 // https://github.com/flutterchina/dio/blob/master/README-ZH.md#%E6%8B%A6%E6%88%AA%E5%99%A8

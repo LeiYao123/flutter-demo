@@ -8,7 +8,7 @@ void main() {
   Global.init().then((v) {
     runApp(GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: '/test',
       getPages: appRoutes,
       theme: customTheme,
     ));

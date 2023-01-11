@@ -6,7 +6,7 @@ import 'package:tablet/utils/storage.dart';
 class TestPage extends StatelessWidget {
   const TestPage({super.key});
 
-  void handleDio() {
+  void handleDio() async {
     print('handleDio');
     // Http()
     //     .getDio()
@@ -19,6 +19,11 @@ class TestPage extends StatelessWidget {
     // final d3 = Http.dio;
     // d3.get('https://www.baidu.com/').then((value) => {print('dio 响应$value')});
     // // print('http--dio$d3');
+    // Http.dio
+    //     .get('https://www.baidu.com/')
+    //     .then((value) => {print('dio 响应$value')});
+    final res = await Http.dio.get('https://www.baidu.com/');
+    print('res--$res');
   }
 
   void handleSetToken() {
