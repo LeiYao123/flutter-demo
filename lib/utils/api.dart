@@ -23,7 +23,7 @@ class Http {
   }
   // 暴露方法获取 dio 实例
   static Dio get dio {
-    Http._init();
+    Http();
     return _dio;
   }
 }
