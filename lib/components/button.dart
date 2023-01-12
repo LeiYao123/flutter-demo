@@ -81,7 +81,7 @@ class RuButton extends StatelessWidget {
             height: 20,
             width: 20,
             child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(Colors.black),
+              valueColor: AlwaysStoppedAnimation(Colors.white),
             ),
           ),
         ),

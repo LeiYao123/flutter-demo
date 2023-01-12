@@ -1,7 +1,9 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:tablet/components/button.dart';
 import 'package:tablet/utils/api.dart';
 import 'package:tablet/utils/storage.dart';
+import 'package:tablet/components/toast.dart';
 
 class TestPage extends StatelessWidget {
   const TestPage({super.key});
@@ -35,6 +37,11 @@ class TestPage extends StatelessWidget {
   //   print('get $token');
   // }
 
+  void showToast() {
+    Toast.infoBar(
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +54,8 @@ class TestPage extends StatelessWidget {
           children: <Widget>[
             RuButton('写入token', onPressed: handleSetToken),
             // RuButton('获取token', onPressed: handleGetToken),
-            RuButton('dio测试', onPressed: handleDio)
+            RuButton('dio测试', onPressed: handleDio),
+            RuButton('show toast', onPressed: showToast),
           ],
         ),
       ),

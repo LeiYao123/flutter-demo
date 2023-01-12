@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:get/get.dart';
+import 'package:tablet/components/toast.dart';
 import 'package:tablet/style/color.dart';
+import 'package:tablet/utils/storage.dart';
 import './components/phone/index.dart';
 import './components/email/index.dart';
 
@@ -13,6 +15,16 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   String currMode = 'email';
+
+  void handleSuccess(res) {
+    final String msg = res['message'];
+    final String token = res['data']?['access_token'];
+
+    LocalToken.setToken(token);
+    Toast.successBar(msg).then((value) {
+      Get.offNamed('/');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +77,9 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   const SizedBox(height: 28),
-                  currMode == 'phone' ? const PhoneForm() : const EmailForm(),
+                  currMode == 'phone'
+                      ? PhoneForm(onSuccess: handleSuccess)
+                      : EmailForm(onSuccess: handleSuccess),
                   const SizedBox(height: 28),
                   const Text('Login issue? Call (855)979-8860'),
                 ]),

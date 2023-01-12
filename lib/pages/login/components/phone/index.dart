@@ -5,7 +5,8 @@ import 'package:tablet/components/button.dart';
 import 'package:tablet/style/color.dart';
 
 class PhoneForm extends StatefulWidget {
-  const PhoneForm({super.key});
+  final void Function(Map<String, dynamic> res) onSuccess;
+  const PhoneForm({super.key, required this.onSuccess});
 
   @override
   State<PhoneForm> createState() => _PhoneFormState();
