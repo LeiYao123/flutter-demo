@@ -1,7 +1,8 @@
-import 'dart:async';
-
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:tablet/apis/user.dart';
 import 'package:tablet/components/button.dart';
+import 'package:tablet/components/toast.dart';
 import 'package:tablet/style/color.dart';
 
 class PhoneForm extends StatefulWidget {
@@ -13,42 +14,62 @@ class PhoneForm extends StatefulWidget {
 }
 
 class _PhoneFormState extends State<PhoneForm> {
-  bool isLoading = false;
-  String currMode = 'phone'; // phone、code
-  String phoneNumber = '';
-  String code = '';
-
-  void handleGetCode() {
-    setState(() {
-      isLoading = true;
-    });
-    Timer(const Duration(seconds: 3), () {
+  bool _isLoading = false;
+  String _currMode = 'phone'; // phone、code
+  String _phoneNumber = '';
+  String _code = '';
+  // 获取验证码
+  void _handleGetCode() async {
+    setState(() => _isLoading = true);
+    try {
+      final res = await UserApi.sendCode(phone: _phoneNumber);
+      Toast.successBar(res['message']);
       setState(() {
-        isLoading = false;
-        currMode = 'code';
+        _currMode = 'code';
       });
-    });
+    } on DioError catch (e) {
+      if (e.response != null) Toast.errorBar(e.message);
+    }
+    setState(() => _isLoading = false);
+  }
+
+  // 登录
+  void _handleLogin() async {
+    setState(() => _isLoading = true);
+    try {
+      final res = await UserApi.login(phone: _phoneNumber, code: _code);
+      widget.onSuccess(res);
+      setState(() {
+        _currMode = 'code';
+      });
+    } on DioError catch (e) {
+      if (e.response != null) Toast.errorBar(e.message);
+    }
+    setState(() => _isLoading = false);
   }
 
   @override
   Widget build(BuildContext context) {
+    String btnTxt = _currMode == 'phone' ? 'Send code' : 'Sign in';
+    dynamic Function() onSubmit =
+        _currMode == 'phone' ? _handleGetCode : _handleLogin;
+
     return Column(
       children: [
-        currMode == 'phone'
-            ? TextField(
+        _currMode == 'phone'
+            ? TextFormField(
                 key: const Key('login_phone_input'),
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   labelText: 'Phone number',
                   border: OutlineInputBorder(),
                 ),
+                initialValue: _phoneNumber,
                 onChanged: (v) {
-                  setState(() {
-                    phoneNumber = v;
-                  });
+                  setState(() => _phoneNumber = v);
                 },
               )
-            : TextField(
+            : TextFormField(
                 key: const Key('login_code_input'),
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
@@ -56,39 +77,41 @@ class _PhoneFormState extends State<PhoneForm> {
                   border: OutlineInputBorder(),
                 ),
                 onChanged: (v) {
-                  setState(() {
-                    phoneNumber = v;
-                  });
+                  setState(() => _code = v);
                 },
               ),
         Container(
           margin: const EdgeInsets.only(top: 16, bottom: 8),
           child: RuButton(
-            currMode == 'phone' ? 'Send code' : 'Sign in',
-            loading: isLoading,
+            btnTxt,
+            loading: _isLoading,
             isBlock: true,
-            onPressed: handleGetCode,
+            onPressed: onSubmit,
           ),
         ),
-        currMode != 'phone'
+        _currMode != 'phone'
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    child: Text('Go Back',
-                        style: TextStyle(color: RuColor.yellow)),
+                    child: Text(
+                      'Go Back',
+                      style: TextStyle(color: RuColor.yellow),
+                    ),
                     onTap: () {
                       setState(() {
-                        currMode = 'phone';
-                        code = '';
+                        _currMode = 'phone';
+                        _code = '';
                       });
                     },
                   ),
                   const Text(' | '),
                   InkWell(
-                    onTap: handleGetCode,
-                    child: Text('Resend Code',
-                        style: TextStyle(color: RuColor.yellow)),
+                    onTap: _handleGetCode,
+                    child: Text(
+                      'Resend Code',
+                      style: TextStyle(color: RuColor.yellow),
+                    ),
                   ),
                 ],
               )

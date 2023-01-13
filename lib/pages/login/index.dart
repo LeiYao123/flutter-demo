@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tablet/components/toast.dart';
+import 'package:tablet/routes/index.dart';
 import 'package:tablet/style/color.dart';
+import 'package:tablet/style/image.dart';
 import 'package:tablet/utils/storage.dart';
 import './components/phone/index.dart';
 import './components/email/index.dart';
@@ -14,15 +16,16 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String currMode = 'email';
+  String _currMode = 'phone';
 
+  // login success 成功之后统一处理
   void handleSuccess(res) {
     final String msg = res['message'];
     final String token = res['data']?['access_token'];
 
     LocalToken.setToken(token);
     Toast.successBar(msg).then((value) {
-      Get.offNamed('/');
+      Get.offNamed(AppRoutes.home);
     });
   }
 
@@ -35,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
         // stretch 交叉轴铺满解决 Column 交叉轴默认为其本身大小,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Image.asset('assets/image/rushable-full.png', height: 60),
+          Image.asset(ImagePath.logo, height: 60),
           Center(
             child: Card(
               elevation: 10,
@@ -57,9 +60,9 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             value: 'phone',
-                            groupValue: currMode,
+                            groupValue: _currMode,
                             onChanged: (v) => setState(() {
-                                  currMode = v!;
+                                  _currMode = v!;
                                 })),
                       ),
                       Expanded(
@@ -69,15 +72,15 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             value: 'email',
-                            groupValue: currMode,
+                            groupValue: _currMode,
                             onChanged: (v) => setState(() {
-                                  currMode = v!;
+                                  _currMode = v!;
                                 })),
                       ),
                     ],
                   ),
                   const SizedBox(height: 28),
-                  currMode == 'phone'
+                  _currMode == 'phone'
                       ? PhoneForm(onSuccess: handleSuccess)
                       : EmailForm(onSuccess: handleSuccess),
                   const SizedBox(height: 28),

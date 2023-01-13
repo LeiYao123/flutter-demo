@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:tablet/components/toast.dart';
 import 'package:tablet/utils/config.dart';
 import 'package:tablet/utils/storage.dart';
 
@@ -17,7 +18,6 @@ class Http {
       baseUrl: BASE_URL,
       connectTimeout: 20000,
       receiveTimeout: 20000,
-      headers: {'Authorization': ''},
     );
     _dio = Dio(options);
     addInterceptors(_dio);
@@ -52,6 +52,9 @@ void addInterceptors(Dio dio) {
       );
     },
     onError: (DioError e, handler) {
+      if (e.response == null) {
+        Toast.errorBar("Please make sure you are connected to the internet.");
+      }
       return handler.next(e);
     },
   ));

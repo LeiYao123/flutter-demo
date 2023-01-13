@@ -9,36 +9,26 @@ class TestPage extends StatelessWidget {
   const TestPage({super.key});
 
   void handleDio() async {
-    print('handleDio');
-    // Http()
-    //     .getDio()
-    //     .get('https://www.baidu.com/')
-    //     .then((value) => {print('dio 响应$value')});
-
     // final d1 = Http();
     // final d2 = Http();
     // print(identical(d1, d2));
-    // final d3 = Http.dio;
-    // d3.get('https://www.baidu.com/').then((value) => {print('dio 响应$value')});
-    // // print('http--dio$d3');
-    // Http.dio
-    //     .get('https://www.baidu.com/')
-    //     .then((value) => {print('dio 响应$value')});
-    final res = await Http.dio.get('https://www.baidu.com/');
-    print('res--$res');
+    final d3 = Http.dio;
+    final d4 = Http.dio;
+    // 测试 dio 实例
+    print(identical(d3, d4));
   }
 
   void handleSetToken() {
     LocalToken.setToken('i am custom bear token');
   }
 
-  // void handleGetToken() async {
-  //   final token = await LocalToken.getToken('token');
-  //   print('get $token');
-  // }
+  void handleGetToken() async {
+    final token = await LocalToken.getToken('token');
+    print('get $token');
+  }
 
   void showToast() {
-    Toast.infoBar(
+    Toast.errorBar(
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry");
   }
 
@@ -49,11 +39,11 @@ class TestPage extends StatelessWidget {
         title: const Text('测试 widget 效果'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Wrap(
+          spacing: 12,
           children: <Widget>[
             RuButton('写入token', onPressed: handleSetToken),
-            // RuButton('获取token', onPressed: handleGetToken),
+            RuButton('获取token', onPressed: handleGetToken),
             RuButton('dio测试', onPressed: handleDio),
             RuButton('show toast', onPressed: showToast),
           ],

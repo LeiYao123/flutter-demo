@@ -108,7 +108,7 @@ class RuButton extends StatelessWidget {
     );
     // 是否独占一行
     final mainAxisSize = isBlock ? MainAxisSize.max : MainAxisSize.min;
-    final onClick = disabled ? null : onPressed;
+    final onClick = (disabled || loading) ? null : onPressed;
 
     if (isOutlined) {
       return OutlinedButton(

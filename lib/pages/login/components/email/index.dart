@@ -17,7 +17,7 @@ class _EmailFormState extends State<EmailForm> {
   String _email = '';
   String _password = '';
   bool _isRemember = true;
-  bool loading = false;
+  bool _loading = false;
 
   @override
   void initState() {
@@ -30,7 +30,7 @@ class _EmailFormState extends State<EmailForm> {
     });
   }
 
-  void saveUserInfo() {
+  void _saveUserInfo() {
     final prefs = Global.prefs;
     if (_isRemember) {
       prefs.setString('user_email', _email);
@@ -41,16 +41,18 @@ class _EmailFormState extends State<EmailForm> {
     }
   }
 
-  void handleSubmit() async {
-    setState(() => loading = true);
+  void _handleSubmit() async {
+    setState(() => _loading = true);
     try {
       final res = await UserApi.login(email: _email, password: _password);
-      saveUserInfo();
+      _saveUserInfo();
       widget.onSuccess(res);
     } on DioError catch (e) {
-      Toast.errorBar(e.message);
+      if (e.response != null) {
+        Toast.errorBar(e.message);
+      }
     }
-    setState(() => loading = false);
+    setState(() => _loading = false);
   }
 
   @override
@@ -105,9 +107,9 @@ class _EmailFormState extends State<EmailForm> {
           margin: const EdgeInsets.only(top: 16, bottom: 8),
           child: RuButton(
             'Sign in',
-            loading: loading,
+            loading: _loading,
             isBlock: true,
-            onPressed: handleSubmit,
+            onPressed: _handleSubmit,
           ),
         ),
       ],
