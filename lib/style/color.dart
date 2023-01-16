@@ -31,11 +31,11 @@ MaterialColor createMaterialColor(Color color) {
 
 // 管理项目中用到的所有颜色
 class RuColor {
-  static Color white = Colors.white;
-  static Color gray = const Color(0xFFCCCCCC);
-  static Color black = const Color(0xFF000016);
-  static Color blue = Colors.blue;
-  static Color red = Colors.red;
-  static Color yellow = const Color(0xFFFFB800);
-  static Color green = const Color.fromRGBO(3, 201, 169, 1);
+  static const Color white = Colors.white;
+  static const Color gray = Color(0xFFCCCCCC);
+  static const Color black = Color(0xFF000016);
+  static const Color blue = Colors.blue;
+  static const Color red = Colors.red;
+  static const Color yellow = Color(0xFFFFB800);
+  static const Color green = Color.fromRGBO(3, 201, 169, 1);
 }

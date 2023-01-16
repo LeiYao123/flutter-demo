@@ -1,3 +1,4 @@
 class ImagePath {
-  static String logo = 'assets/image/rushable-full.png';
+  static const logo = 'assets/image/rushable-full.png';
+  static const loginBg = 'assets/image/login-background.png';
 }

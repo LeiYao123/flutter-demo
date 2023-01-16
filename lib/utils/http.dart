@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:tablet/components/toast.dart';
 import 'package:tablet/utils/config.dart';
+import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/storage.dart';
 
 // 单例模式的 Dio
@@ -34,7 +35,7 @@ class Http {
 void addInterceptors(Dio dio) {
   dio.interceptors.add(InterceptorsWrapper(
     onRequest: (options, handler) {
-      String token = LocalToken.getToken('token');
+      String? token = Global.prefs.getString(StorageKey.token);
       options.headers['Authorization'] = 'Bearer $token';
       return handler.next(options);
     },

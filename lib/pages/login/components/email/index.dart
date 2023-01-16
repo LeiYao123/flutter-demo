@@ -4,6 +4,7 @@ import 'package:tablet/components/button.dart';
 import 'package:tablet/components/toast.dart';
 import 'package:tablet/apis/user.dart';
 import 'package:tablet/utils/global.dart';
+import 'package:tablet/utils/storage.dart';
 
 class EmailForm extends StatefulWidget {
   final void Function(Map<String, dynamic> res) onSuccess;
@@ -22,8 +23,8 @@ class _EmailFormState extends State<EmailForm> {
   @override
   void initState() {
     super.initState();
-    final email = Global.prefs.getString('user_email');
-    final pwd = Global.prefs.getString('user_password');
+    final email = Global.prefs.getString(StorageKey.email);
+    final pwd = Global.prefs.getString(StorageKey.password);
     setState(() {
       _email = email ?? '';
       _password = pwd ?? '';
@@ -33,11 +34,11 @@ class _EmailFormState extends State<EmailForm> {
   void _saveUserInfo() {
     final prefs = Global.prefs;
     if (_isRemember) {
-      prefs.setString('user_email', _email);
-      prefs.setString('user_password', _password);
+      prefs.setString(StorageKey.email, _email);
+      prefs.setString(StorageKey.password, _password);
     } else {
-      prefs.remove('user_email');
-      prefs.remove('user_password');
+      prefs.remove(StorageKey.email);
+      prefs.remove(StorageKey.password);
     }
   }
 

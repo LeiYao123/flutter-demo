@@ -4,6 +4,7 @@ import 'package:tablet/components/toast.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/style/color.dart';
 import 'package:tablet/style/image.dart';
+import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/storage.dart';
 import './components/phone/index.dart';
 import './components/email/index.dart';
@@ -23,9 +24,10 @@ class _LoginPageState extends State<LoginPage> {
     final String msg = res['message'];
     final String token = res['data']?['access_token'];
 
-    LocalToken.setToken(token);
+    Global.prefs.setString(StorageKey.token, token);
     Toast.successBar(msg).then((value) {
-      Get.offNamed(AppRoutes.home);
+      // 前往选择 brands 页面
+      Get.offNamed(AppRoutes.chooseRestaurant);
     });
   }
 

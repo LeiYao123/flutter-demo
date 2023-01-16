@@ -5,25 +5,25 @@ enum BtnColorEnum { primary, secondary, warning }
 
 enum BtnSizeEnum { sm, md, lg }
 
-final Map<BtnSizeEnum, double> fontSizeMap = {
+const Map<BtnSizeEnum, double> fontSizeMap = {
   BtnSizeEnum.sm: 12,
   BtnSizeEnum.md: 16,
   BtnSizeEnum.lg: 20,
 };
 
-final Map<BtnSizeEnum, List<double>> paddingSizeMap = {
+const Map<BtnSizeEnum, List<double>> paddingSizeMap = {
   BtnSizeEnum.sm: [16, 14],
   BtnSizeEnum.md: [24, 18],
   BtnSizeEnum.lg: [24, 22],
 };
 
-final Map<BtnColorEnum, Color> backgroundColorMap = {
+const Map<BtnColorEnum, Color> backgroundColorMap = {
   BtnColorEnum.primary: RuColor.yellow,
   BtnColorEnum.secondary: RuColor.gray,
   BtnColorEnum.warning: RuColor.red,
 };
 
-final Map<BtnColorEnum, Color> foregroundColorMap = {
+const Map<BtnColorEnum, Color> foregroundColorMap = {
   BtnColorEnum.primary: RuColor.black,
   BtnColorEnum.secondary: RuColor.black,
   BtnColorEnum.warning: RuColor.white,
@@ -33,21 +33,19 @@ class RuButton extends StatelessWidget {
   final String text;
   final BtnColorEnum color;
   final BtnSizeEnum size;
-  final bool isOutlined;
-  final bool isBlock; // 是否独占一行
-  final bool disabled;
-  final bool loading;
+  // 外边框，是否独占一行，禁用，loading
+  final bool isOutlined, isBlock, disabled, loading;
   final Widget? iconBefore;
   final Widget? iconAfter;
   final Function() onPressed;
-
+  // 成员属性均为，构造函数可申明为常量构造函数
   const RuButton(
     this.text, {
     super.key,
     this.color = BtnColorEnum.primary,
+    this.size = BtnSizeEnum.md,
     this.isOutlined = false,
     this.isBlock = false,
-    this.size = BtnSizeEnum.md,
     this.disabled = false,
     this.loading = false,
     this.iconBefore,
