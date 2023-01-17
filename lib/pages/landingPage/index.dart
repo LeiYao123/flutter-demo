@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tablet/routes/index.dart';
+import 'package:tablet/store/test.controller.dart';
 import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/storage.dart';
 
@@ -17,6 +18,7 @@ class _LandingPageState extends State<LandingPage> {
   void initState() {
     super.initState();
     _getLoginStatus();
+    // UserApi.getProfile();
   }
 
   void _getLoginStatus() {
@@ -25,7 +27,7 @@ class _LandingPageState extends State<LandingPage> {
         final token = Global.prefs.getString(StorageKey.token);
         final brandId = Global.prefs.getString(StorageKey.brandId);
         final locationId = Global.prefs.getString(StorageKey.locationId);
-        print('$brandId - $locationId');
+        print('brandid - $brandId - $locationId');
         if (token != null) {
           if (brandId == null || locationId == null) {
             Get.offNamed(AppRoutes.chooseRestaurant);

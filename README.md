@@ -1,16 +1,14 @@
-# tablet
+# restaurant-tablet-v3
 
-A new Flutter project.
+### app 初始化流程
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+1. 打开 app initialRoute  => landingpage
+2. 判断是否有 token ?
+    a. 有 token => 判断是否有 brandId、locationId
+        1. brandId、locationId 均存在，叫 profile api 成功后进入 Orders 页面
+        2. 若有一项不存在 => brandList 页面
+    b. 没有 token => login  => brandList 页面
+3. 进入 brandList 页面，选择 brand 请求 location 列表
+4. 点击 location 叫 profile api 成功后进入 Orders 页面
+```

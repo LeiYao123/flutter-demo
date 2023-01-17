@@ -33,7 +33,7 @@ MaterialColor createMaterialColor(Color color) {
 class RuColor {
   static const Color white = Colors.white;
   static const Color gray = Color(0xFFCCCCCC);
-  static const Color black = Color(0xFF000016);
+  static const Color black = Color(0xFF181818);
   static const Color blue = Colors.blue;
   static const Color red = Colors.red;
   static const Color yellow = Color(0xFFFFB800);

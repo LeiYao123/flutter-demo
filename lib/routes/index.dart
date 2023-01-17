@@ -28,7 +28,7 @@ class AppRoutes {
     GetPage(name: order, page: () => const OrdersPage()),
 
     // // =====以下为测试页面======
-    GetPage(name: order, page: () => const HomePage()),
+    GetPage(name: home, page: () => const HomePage()),
     GetPage(name: other, page: () => Other()),
     GetPage(name: icons, page: () => const IconsPage()),
     GetPage(name: button, page: () => const ButtonPage()),

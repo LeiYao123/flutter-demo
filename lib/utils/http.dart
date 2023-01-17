@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:get/get.dart';
 import 'package:tablet/components/toast.dart';
+import 'package:tablet/routes/index.dart';
 import 'package:tablet/utils/config.dart';
 import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/storage.dart';
@@ -17,46 +19,55 @@ class Http {
   Http._init() {
     final BaseOptions options = BaseOptions(
       baseUrl: BASE_URL,
-      connectTimeout: 20000,
+      // https://stackoverflow.com/questions/73106834/flutter-dio-interceptor-error-bad-state-future-already-completed
+      // connectTimeout: 20000,
       receiveTimeout: 20000,
     );
     _dio = Dio(options);
-    addInterceptors(_dio);
+    _addInterceptors(_dio);
   }
   // 暴露方法获取 dio 实例
   static Dio get dio {
     Http();
     return _dio;
   }
-}
 
-// dio 拦截器
+  static List<String> noWithTokenUrl = ['api/auth/login', 'api/app/version'];
+
+  // dio 拦截器
 // https://github.com/flutterchina/dio/blob/master/README-ZH.md#%E6%8B%A6%E6%88%AA%E5%99%A8
-void addInterceptors(Dio dio) {
-  dio.interceptors.add(InterceptorsWrapper(
-    onRequest: (options, handler) {
-      String? token = Global.prefs.getString(StorageKey.token);
-      options.headers['Authorization'] = 'Bearer $token';
-      return handler.next(options);
-    },
-    onResponse: (response, handler) {
-      bool success = response.data['success'];
-      if (success) return handler.next(response);
-      // 业务失败的情况下返回 DioError 类型对象 => handleReject 会走到 onError 里面
-      handler.reject(
-        DioError(
-          error: Exception(response.data['message']),
-          type: DioErrorType.response,
-          requestOptions: response.requestOptions,
-          response: response,
-        ),
-      );
-    },
-    onError: (DioError e, handler) {
-      if (e.response == null) {
-        Toast.errorBar("Please make sure you are connected to the internet.");
-      }
-      return handler.next(e);
-    },
-  ));
+  void _addInterceptors(Dio dio) {
+    dio.interceptors.add(InterceptorsWrapper(
+      onRequest: (options, handler) {
+        String? token = Global.prefs.getString(StorageKey.token);
+
+        if (token == null && !noWithTokenUrl.contains(options.path)) {
+          Get.offAllNamed(AppRoutes.login);
+          return;
+        }
+        options.headers['Authorization'] = 'Bearer $token';
+        return handler.next(options);
+      },
+      onResponse: (response, handler) {
+        bool success = response.data['success'];
+        if (success) return handler.next(response);
+        // 业务失败的情况下返回 DioError 类型对象 => handleReject 会走到 onError 里面
+        handler.reject(
+          DioError(
+            error: Exception(response.data['message']),
+            type: DioErrorType.response,
+            requestOptions: response.requestOptions,
+            response: response,
+          ),
+        );
+      },
+      onError: (DioError e, handler) {
+        print('dio error： --> ${e.response}');
+        if (e.response == null) {
+          Toast.errorBar("Please make sure you are connected to the internet.");
+        }
+        return handler.next(e);
+      },
+    ));
+  }
 }

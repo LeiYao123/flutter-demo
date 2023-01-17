@@ -1,3 +1,6 @@
+import 'package:get/get.dart';
+import 'package:tablet/components/toast.dart';
+import 'package:tablet/store/test.controller.dart';
 import 'package:tablet/utils/http.dart';
 
 class UserApi {
@@ -25,9 +28,17 @@ class UserApi {
     ).then((value) => value.data);
   }
 
-  static Future getProfile({required String brandId}) async {
+  static Future getProfile({String? brandId}) async {
+    final TestController tc = Get.put(TestController());
     return await Http.dio
         .post('api/cp/user?brand_id=$brandId')
-        .then((value) => value.data);
+        .then((value) => value.data)
+        .then((value) {
+      print('value-->$value');
+    }).catchError((e) {
+      Toast.errorBar(e.message);
+      tc.sub();
+      print('profileerror $e');
+    });
   }
 }

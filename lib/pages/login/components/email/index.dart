@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:tablet/components/button.dart';
+import 'package:tablet/components/text.dart';
 import 'package:tablet/components/toast.dart';
 import 'package:tablet/apis/user.dart';
 import 'package:tablet/utils/global.dart';
@@ -31,23 +32,23 @@ class _EmailFormState extends State<EmailForm> {
     });
   }
 
-  void _saveUserInfo() {
+  void _saveUserInfo(res) async {
     final prefs = Global.prefs;
     if (_isRemember) {
-      prefs.setString(StorageKey.email, _email);
-      prefs.setString(StorageKey.password, _password);
+      await prefs.setString(StorageKey.email, _email);
+      await prefs.setString(StorageKey.password, _password);
     } else {
-      prefs.remove(StorageKey.email);
-      prefs.remove(StorageKey.password);
+      await prefs.remove(StorageKey.email);
+      await prefs.remove(StorageKey.password);
     }
+    widget.onSuccess(res);
   }
 
   void _handleSubmit() async {
     setState(() => _loading = true);
     try {
       final res = await UserApi.login(email: _email, password: _password);
-      _saveUserInfo();
-      widget.onSuccess(res);
+      _saveUserInfo(res);
     } on DioError catch (e) {
       if (e.response != null) {
         Toast.errorBar(e.message);
@@ -93,10 +94,7 @@ class _EmailFormState extends State<EmailForm> {
           value: _isRemember,
           dense: true,
           controlAffinity: ListTileControlAffinity.leading,
-          title: const Text(
-            'Remember Me',
-            style: TextStyle(fontSize: 16),
-          ),
+          title: const RuText('Remember Me'),
           contentPadding: const EdgeInsets.all(0),
           onChanged: (value) {
             setState(() {

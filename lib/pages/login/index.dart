@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tablet/components/toast.dart';
+import 'package:tablet/components/text.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/style/color.dart';
 import 'package:tablet/style/image.dart';
@@ -20,15 +20,11 @@ class _LoginPageState extends State<LoginPage> {
   String _currMode = 'phone';
 
   // login success 成功之后统一处理
-  void handleSuccess(res) {
+  void handleSuccess(res) async {
     final String msg = res['message'];
     final String token = res['data']?['access_token'];
-
-    Global.prefs.setString(StorageKey.token, token);
-    Toast.successBar(msg).then((value) {
-      // 前往选择 brands 页面
-      Get.offNamed(AppRoutes.chooseRestaurant);
-    });
+    await Global.prefs.setString(StorageKey.token, token);
+    Get.offNamed(AppRoutes.chooseRestaurant, arguments: msg);
   }
 
   @override
@@ -57,10 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Expanded(
                         child: RadioListTile(
-                            title: const Text(
-                              'Your Cellphone',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
+                            title: const RuText('Your Cellphone', isBold: true),
                             value: 'phone',
                             groupValue: _currMode,
                             onChanged: (v) => setState(() {
@@ -69,10 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Expanded(
                         child: RadioListTile(
-                            title: const Text(
-                              'Your Email',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
+                            title: const RuText('Your Cellphone', isBold: true),
                             value: 'email',
                             groupValue: _currMode,
                             onChanged: (v) => setState(() {
@@ -86,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                       ? PhoneForm(onSuccess: handleSuccess)
                       : EmailForm(onSuccess: handleSuccess),
                   const SizedBox(height: 28),
-                  const Text('Login issue? Call (855)979-8860'),
+                  const RuText('Login issue? Call (855)979-8860'),
                 ]),
               ),
             ),

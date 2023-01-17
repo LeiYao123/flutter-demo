@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:tablet/apis/user.dart';
 import 'package:tablet/components/button.dart';
+import 'package:tablet/components/text.dart';
 import 'package:tablet/components/toast.dart';
 import 'package:tablet/style/color.dart';
 
@@ -94,10 +95,7 @@ class _PhoneFormState extends State<PhoneForm> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    child: Text(
-                      'Go Back',
-                      style: TextStyle(color: RuColor.yellow),
-                    ),
+                    child: const RuText('Go Back', color: RuColor.yellow),
                     onTap: () {
                       setState(() {
                         _currMode = 'phone';
@@ -105,13 +103,10 @@ class _PhoneFormState extends State<PhoneForm> {
                       });
                     },
                   ),
-                  const Text(' | '),
+                  const RuText(' | '),
                   InkWell(
                     onTap: _handleGetCode,
-                    child: Text(
-                      'Resend Code',
-                      style: TextStyle(color: RuColor.yellow),
-                    ),
+                    child: const RuText('Go Back', color: RuColor.yellow),
                   ),
                 ],
               )
