@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 import 'package:tablet/apis/brand.dart';
+import 'package:tablet/apis/user.dart';
 import 'package:tablet/components/text.dart';
 import 'package:tablet/components/toast.dart';
+import 'package:tablet/routes/index.dart';
 import 'package:tablet/style/color.dart';
 import 'package:tablet/style/image.dart';
 
@@ -18,24 +20,35 @@ class ChooseRestaurant extends StatefulWidget {
 class _ChooseRestaurantState extends State<ChooseRestaurant> {
   int _step = 1; // 1: 选择 brand 2: 选择 location
   List _brandList = [];
+  List _locationList = [];
+  late String _currBrandId;
   final RefreshController _pullRefresher =
       RefreshController(initialRefresh: false);
 
   @override
   void initState() {
     super.initState();
-    getBrands();
+    _getBrandsApi();
     if (Get.arguments != null) {
       Future.delayed(Duration.zero)
           .then((value) => {Toast.successBar(Get.arguments)});
     }
   }
 
-  void getBrands({bool isRefresh = false}) async {
+  void _getBrandsApi({bool isRefresh = false}) async {
     try {
       final res = await BrandApi.getBrands();
+      final data = res['data'] ?? [];
+      List list = data.map((e) {
+        return {
+          'id': e['id'].toString(),
+          'name': e['name'],
+          'desc': e['locations_count'],
+          'checked': false,
+        };
+      }).toList();
       setState(() {
-        _brandList = res['data'] ?? [];
+        _brandList = list;
       });
     } on DioError catch (e) {
       Toast.errorBar(e.message);
@@ -46,45 +59,138 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
     }
   }
 
+  void _getLocationsApi(String brandId, {bool isRefresh = false}) async {
+    try {
+      final res = await BrandApi.getLocations(brandId);
+      final data = res?['data']['data'] ?? [];
+      List list = data.map((e) {
+        String line1 = e?['address']?['line_1'] ?? '';
+        String line2 = e?['address']?['line_2'] ?? '';
+        return {
+          'id': e['id'].toString(),
+          'name': e?['name'] ?? '',
+          'address': '$line1 $line2',
+          'desc': e?['address']?['state'] ?? '',
+          'checked': false,
+        };
+      }).toList();
+      setState(() {
+        _locationList = list;
+      });
+    } on DioError catch (e) {
+      Toast.errorBar(e.message);
+    } finally {
+      if (isRefresh) {
+        _pullRefresher.refreshCompleted();
+      } else {
+        _cancelChecked();
+        _step = 2;
+      }
+    }
+  }
+
+  void _getProfileApi() async {
+    final res = await UserApi.getProfile(_currBrandId);
+  }
+
+  // 返回操作
   void _handleBack() {
     if (_step == 1) {
-      print('logout 操作');
-      return;
+      Get.offAllNamed(AppRoutes.login);
+    } else {
+      setState(() {
+        _step = 1;
+      });
     }
+  }
+
+  // 取消高亮选中效果
+  void _cancelChecked() {
+    List brands = _brandList.map((e) => ({...e, 'checked': false})).toList();
+    List locations =
+        _locationList.map((e) => ({...e, 'checked': false})).toList();
     setState(() {
-      _step = 1;
+      _brandList = brands;
+      _locationList = locations;
     });
   }
 
-  Widget _getBrandItem(e) {
-    return Center(
-      child: InkWell(
-        child: Container(
-          width: 500,
-          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
-          margin: const EdgeInsets.symmetric(vertical: 12),
-          decoration: BoxDecoration(
-            border: Border.all(width: 1, color: RuColor.gray),
-            borderRadius: const BorderRadius.all(Radius.circular(4)),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              RuText(e['name'], size: 20, isBold: true),
-              Container(
-                width: 32,
-                height: 32,
-                decoration: const BoxDecoration(
-                    color: Colors.black12,
-                    borderRadius: BorderRadius.all(Radius.circular(4))),
-                alignment: Alignment.center,
-                child: RuText(e['locations_count']),
+  // 点击brand
+  void _handleTapBrandItem(e) {
+    _currBrandId = e['id'];
+    _getLocationsApi(_currBrandId);
+
+    List list = _brandList.map((v) {
+      v['id'] == e['id'] ? v['checked'] = true : v['checked'] = false;
+      return v;
+    }).toList();
+    setState(() {
+      _brandList = list;
+    });
+  }
+
+  void _handleTapLocationItem(e) {
+    _getProfileApi();
+    List list = _locationList.map((v) {
+      v['id'] == e['id'] ? v['checked'] = true : v['checked'] = false;
+      return v;
+    }).toList();
+    setState(() {
+      _locationList = list;
+    });
+  }
+
+  List<Widget> _getItem(List list) {
+    return list.map((e) {
+      bool checked = e['checked'];
+      return Center(
+        child: GestureDetector(
+          onTap: () =>
+              _step == 1 ? _handleTapBrandItem(e) : _handleTapLocationItem(e),
+          child: Container(
+            width: 500,
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+            margin: const EdgeInsets.symmetric(vertical: 12),
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: checked ? 2 : 1,
+                color: checked ? RuColor.yellow : RuColor.gray,
               ),
-            ],
+              borderRadius: const BorderRadius.all(Radius.circular(4)),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _step == 1
+                    ? RuText(e['name'], size: 20, isBold: true)
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          RuText(e['name'], size: 20, isBold: true),
+                          const SizedBox(height: 8),
+                          RuText(e['address'], size: 12, color: Colors.black26),
+                        ],
+                      ),
+                Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: checked
+                        ? null
+                        : const Color.fromARGB(31, 140, 139, 139),
+                    borderRadius: const BorderRadius.all(Radius.circular(4)),
+                  ),
+                  alignment: Alignment.center,
+                  child: checked
+                      ? const CircularProgressIndicator()
+                      : RuText(e['desc'], size: 14),
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
+    }).toList();
   }
 
   @override
@@ -95,6 +201,7 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
           'Select Your ${_step == 1 ? 'Brand' : 'Store'}',
           isBold: true,
         ),
+        centerTitle: true,
         leadingWidth: 300,
         leading: GestureDetector(
           onTap: _handleBack,
@@ -122,9 +229,12 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
             child: SmartRefresher(
               controller: _pullRefresher,
               header: const ClassicHeader(),
-              onRefresh: () => getBrands(isRefresh: true),
+              onRefresh: () => _step == 1
+                  ? _getBrandsApi(isRefresh: true)
+                  : _getLocationsApi(_currBrandId, isRefresh: true),
               child: ListView(
-                children: _brandList.map((e) => _getBrandItem(e)).toList(),
+                children:
+                    _step == 1 ? _getItem(_brandList) : _getItem(_locationList),
               ),
             ),
           )),
