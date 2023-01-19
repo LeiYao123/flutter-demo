@@ -1,6 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
-import 'package:tablet/utils/global.dart';
+import 'package:get/get.dart';
 import 'package:tablet/style/color.dart';
 
 // https://pub.dev/packages/another_flushbar
@@ -35,7 +35,6 @@ class Toast {
     required Color backgroundColor,
     int duration = 2,
   }) {
-    BuildContext context = Global.navigatorContext!;
     return Flushbar(
       message: message,
       icon: icon,
@@ -48,6 +47,6 @@ class Toast {
       margin: const EdgeInsets.only(top: 16),
       padding: const EdgeInsets.all(16),
       isDismissible: true,
-    ).show(context);
+    ).show(Get.context!);
   }
 }

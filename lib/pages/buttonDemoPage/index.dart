@@ -32,8 +32,8 @@ class ButtonPage extends StatelessWidget {
                   'primary',
                   size: BtnSizeEnum.lg,
                   color: BtnColorEnum.primary,
-                  iconBefore: RuIcons.svg('Lined/star'),
-                  iconAfter: RuIcons.svg('Solid/star'),
+                  iconBefore: RuIcons.svg(IconPath.LinedStar),
+                  iconAfter: RuIcons.svg(IconPath.SolidStar),
                   onPressed: () {
                     print('secondary-button');
                   },
@@ -52,8 +52,8 @@ class ButtonPage extends StatelessWidget {
                   isOutlined: true,
                   size: BtnSizeEnum.lg,
                   color: BtnColorEnum.primary,
-                  iconBefore: RuIcons.svg('Lined/star'),
-                  iconAfter: RuIcons.svg('Solid/star'),
+                  iconBefore: RuIcons.svg(IconPath.LinedStar),
+                  iconAfter: RuIcons.svg(IconPath.SolidStar),
                   onPressed: () {
                     print('secondary-button');
                   },
@@ -142,13 +142,13 @@ class ButtonPage extends StatelessWidget {
             Row(
               children: [
                 RuIconButton(
-                    icon: RuIcons.svg('Lined/star', size: 20),
+                    icon: RuIcons.svg(IconPath.LinedStar, size: 20),
                     bgColor: RuColor.green,
                     onPressed: () {}),
                 const SizedBox(width: 12),
                 RuIconButton(
                     isOutlined: true,
-                    icon: RuIcons.svg('Lined/star', size: 20),
+                    icon: RuIcons.svg(IconPath.SolidStar, size: 20),
                     bgColor: RuColor.green,
                     onPressed: () {}),
               ],

@@ -13,7 +13,6 @@ void main() {
       initialRoute: '/',
       getPages: AppRoutes.getRoutes,
       theme: customTheme,
-      navigatorKey: Global.navigatorKey, // 获取全局context
     ));
   });
 }

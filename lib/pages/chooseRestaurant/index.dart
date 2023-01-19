@@ -9,6 +9,8 @@ import 'package:tablet/components/toast.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/style/color.dart';
 import 'package:tablet/style/image.dart';
+import 'package:tablet/utils/global.dart';
+import 'package:tablet/utils/storage.dart';
 
 class ChooseRestaurant extends StatefulWidget {
   const ChooseRestaurant({super.key});
@@ -89,8 +91,16 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
     }
   }
 
-  void _getProfileApi() async {
-    final res = await UserApi.getProfile(_currBrandId);
+  void _getProfileApi(String locationId) async {
+    try {
+      await UserApi.getProfile(_currBrandId);
+      await Global.prefs.setString(StorageKey.brandId, _currBrandId);
+      await Global.prefs.setString(StorageKey.locationId, locationId);
+      _cancelChecked();
+      Get.offAllNamed(AppRoutes.home);
+    } catch (e) {
+      print('request profile => $e');
+    }
   }
 
   // 返回操作
@@ -130,7 +140,7 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
   }
 
   void _handleTapLocationItem(e) {
-    _getProfileApi();
+    _getProfileApi(e['id']);
     List list = _locationList.map((v) {
       v['id'] == e['id'] ? v['checked'] = true : v['checked'] = false;
       return v;
@@ -208,36 +218,37 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
           child: Row(
             children: [
               const SizedBox(width: 16),
-              const Icon(Icons.arrow_back_ios),
+              const Icon(Icons.arrow_back),
               RuText(_step == 1 ? 'LOG OUT' : 'GO BACK', isBold: true),
             ],
           ),
         ),
       ),
       body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              opacity: 0.02,
-              image: AssetImage(ImagePath.loginBg),
-              repeat: ImageRepeat.repeat,
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            opacity: 0.02,
+            image: AssetImage(ImagePath.loginBg),
+            repeat: ImageRepeat.repeat,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          child: SmartRefresher(
+            controller: _pullRefresher,
+            header: const ClassicHeader(),
+            onRefresh: () => _step == 1
+                ? _getBrandsApi(isRefresh: true)
+                : _getLocationsApi(_currBrandId, isRefresh: true),
+            child: ListView(
+              children:
+                  _step == 1 ? _getItem(_brandList) : _getItem(_locationList),
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            child: SmartRefresher(
-              controller: _pullRefresher,
-              header: const ClassicHeader(),
-              onRefresh: () => _step == 1
-                  ? _getBrandsApi(isRefresh: true)
-                  : _getLocationsApi(_currBrandId, isRefresh: true),
-              child: ListView(
-                children:
-                    _step == 1 ? _getItem(_brandList) : _getItem(_locationList),
-              ),
-            ),
-          )),
+        ),
+      ),
     );
   }
 }

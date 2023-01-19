@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:tablet/components/toast.dart';
 import 'package:tablet/store/user.controller.dart';
 import 'package:tablet/utils/http.dart';
 
@@ -29,22 +28,16 @@ class UserApi {
   }
 
   static Future getProfile(String brandId) async {
-    return await Http.dio
-        .get('api/cp/user?brand_id=$brandId')
-        .then((value) => value.data)
-        .then((value) {
+    return await Http.dio.get('api/cp/user?brand_id=$brandId').then((value) {
       try {
-        print(value);
-        // final UserController userController = Get.put(UserController());
-
-        // final data = value['data'] ?? {};
-        // userController.updateUser(data);
+        final data = value.data?['data'] ?? {};
+        final UserController uc = Get.find<UserController>();
+        uc.updateUser(data);
       } catch (e) {
-        print('catch住了 $e');
+        print('catchgetProfile=> $e');
       }
     }).catchError((e) {
-      Toast.errorBar(e.message);
-      // tc.sub();
+      print('get profile catcherror => $e');
     });
   }
 }

@@ -47,37 +47,41 @@ class _LoginPageState extends State<LoginPage> {
               child: Container(
                 width: 500,
                 padding: const EdgeInsets.all(32.0),
-                child: Column(children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: RadioListTile(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: RadioListTile(
                             title: const RuText('Your Cellphone', isBold: true),
                             value: 'phone',
                             groupValue: _currMode,
                             onChanged: (v) => setState(() {
-                                  _currMode = v!;
-                                })),
-                      ),
-                      Expanded(
-                        child: RadioListTile(
-                            title: const RuText('Your Cellphone', isBold: true),
+                              _currMode = v!;
+                            }),
+                          ),
+                        ),
+                        Expanded(
+                          child: RadioListTile(
+                            title: const RuText('Your Email', isBold: true),
                             value: 'email',
                             groupValue: _currMode,
                             onChanged: (v) => setState(() {
-                                  _currMode = v!;
-                                })),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 28),
-                  _currMode == 'phone'
-                      ? PhoneForm(onSuccess: handleSuccess)
-                      : EmailForm(onSuccess: handleSuccess),
-                  const SizedBox(height: 28),
-                  const RuText('Login issue? Call (855)979-8860'),
-                ]),
+                              _currMode = v!;
+                            }),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 28),
+                    _currMode == 'phone'
+                        ? PhoneForm(onSuccess: handleSuccess)
+                        : EmailForm(onSuccess: handleSuccess),
+                    const SizedBox(height: 28),
+                    const RuText('Login issue? Call (855)979-8860'),
+                  ],
+                ),
               ),
             ),
           ),
