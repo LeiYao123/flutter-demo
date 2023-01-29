@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tablet/apis/user.dart';
+import 'package:tablet/components/button.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/storage.dart';
@@ -31,8 +33,16 @@ class _LandingPageState extends State<LandingPage> {
         if (brandId == null || locationId == null) {
           Get.offNamed(AppRoutes.chooseRestaurant);
         } else {
-          await UserApi.getProfile(brandId);
-          Get.offNamed(AppRoutes.home);
+          try {
+            print(brandId is String);
+            await UserApi.getProfile(brandId);
+            // Get.offNamed(AppRoutes.home);
+          } on DioError catch (e) {
+            // print(e);
+            setState(() {
+              _error = e.message;
+            });
+          }
         }
       } else {
         Get.offNamed(AppRoutes.login);
@@ -49,7 +59,19 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
       body: Center(
         child: _error.isNotEmpty
-            ? Text("Error: $_error")
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Error: $_error"),
+                  const SizedBox(height: 20),
+                  RuButton('Try again', onPressed: () {
+                    _getLoginStatus();
+                    setState(() {
+                      _error = '';
+                    });
+                  }),
+                ],
+              )
             : const CircularProgressIndicator(),
       ),
     );

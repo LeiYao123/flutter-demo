@@ -62,7 +62,7 @@ class Http {
         );
       },
       onError: (DioError e, handler) {
-        print('dio error： --> ${e.response}');
+        print('dio response error： --> ${e.response}；\n $e');
         if (e.response == null) {
           Toast.errorBar("Please make sure you are connected to the internet.");
         }

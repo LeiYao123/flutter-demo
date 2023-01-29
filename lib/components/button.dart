@@ -38,7 +38,6 @@ class RuButton extends StatelessWidget {
   final Widget? iconBefore;
   final Widget? iconAfter;
   final Function() onPressed;
-  // 成员属性均为，构造函数可申明为常量构造函数
   const RuButton(
     this.text, {
     super.key,
@@ -92,8 +91,9 @@ class RuButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final bgColor = backgroundColorMap[color];
     final fgColor = foregroundColorMap[color];
-    final shape =
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0));
+    final shape = RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8.0),
+    );
     final textStyle = TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: fontSizeMap[size],
@@ -108,43 +108,33 @@ class RuButton extends StatelessWidget {
     final mainAxisSize = isBlock ? MainAxisSize.max : MainAxisSize.min;
     final onClick = (disabled || loading) ? null : onPressed;
 
+    final style = ButtonStyle(
+      backgroundColor: isOutlined ? null : MaterialStateProperty.all(bgColor),
+      foregroundColor: isOutlined
+          ? MaterialStateProperty.all(bgColor)
+          : MaterialStateProperty.all(fgColor),
+      elevation: MaterialStateProperty.all(0),
+      padding: MaterialStateProperty.all(padding),
+      shape: MaterialStateProperty.all(shape),
+      textStyle: MaterialStateProperty.all(textStyle),
+    );
+
+    final child = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: mainAxisSize,
+      children: _getChildren(),
+    );
     if (isOutlined) {
       return OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          foregroundColor: bgColor,
-          disabledBackgroundColor: Colors.black12,
-          side: BorderSide(
-            color: disabled ? Colors.transparent : backgroundColorMap[color]!,
-            width: disabled ? 0 : 2,
-          ),
-          elevation: 0,
-          shape: shape,
-          textStyle: textStyle,
-          padding: padding,
-        ),
         onPressed: onClick,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: mainAxisSize,
-          children: _getChildren(),
-        ),
+        style: style,
+        child: child,
       );
     }
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: bgColor,
-        foregroundColor: fgColor,
-        elevation: 0, // 无阴影
-        shape: shape,
-        textStyle: textStyle,
-        padding: padding,
-      ),
       onPressed: onClick,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: mainAxisSize,
-        children: _getChildren(),
-      ),
+      style: style,
+      child: child,
     );
   }
 }
@@ -168,28 +158,20 @@ class RuIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isOutlined) {
-      return OutlinedButton(
-        onPressed: onPressed,
-        style: OutlinedButton.styleFrom(
-          padding: const EdgeInsets.all(16),
-          side: BorderSide(
-            color: bgColor,
-            width: 2,
-          ),
-          shape: const CircleBorder(),
-        ),
-        child: icon,
-      );
-    }
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: IconButton.styleFrom(
-        padding: const EdgeInsets.all(16),
-        backgroundColor: bgColor,
-        shape: const CircleBorder(),
-      ),
-      child: icon,
+    final style = ButtonStyle(
+      padding: MaterialStateProperty.all(const EdgeInsets.all(16)),
+      shape: MaterialStateProperty.all(const CircleBorder()),
+      backgroundColor: isOutlined ? null : MaterialStateProperty.all(bgColor),
+      side: isOutlined
+          ? MaterialStateProperty.all(BorderSide(
+              color: bgColor,
+              width: 2,
+            ))
+          : null,
     );
+    if (isOutlined) {
+      return OutlinedButton(onPressed: onPressed, style: style, child: icon);
+    }
+    return ElevatedButton(onPressed: onPressed, style: style, child: icon);
   }
 }
