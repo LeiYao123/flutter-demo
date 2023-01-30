@@ -50,9 +50,7 @@ class _EmailFormState extends State<EmailForm> {
       final res = await UserApi.login(email: _email, password: _password);
       _saveUserInfo(res);
     } on DioError catch (e) {
-      if (e.response != null) {
-        Toast.errorBar(e.message);
-      }
+      Toast.errorBar(e.message);
     }
     setState(() => _loading = false);
   }

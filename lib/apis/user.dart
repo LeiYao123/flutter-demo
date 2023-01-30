@@ -29,7 +29,6 @@ class UserApi {
 
   static Future getProfile(String brandId) async {
     return await Http.dio.get('api/cp/user?brand_id=$brandId').then((value) {
-      print('value--$value');
       try {
         final data = value.data?['data'] ?? {};
         final UserController uc = Get.find<UserController>();

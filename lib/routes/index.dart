@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:tablet/pages/Orders/index.dart';
 import 'package:tablet/pages/chooseRestaurant/index.dart';
 import 'package:tablet/pages/landingPage/index.dart';
-import 'package:tablet/pages/Home/index.dart';
+import 'package:tablet/pages/home/index.dart';
 import 'package:tablet/pages/login/index.dart';
 import 'package:tablet/pages/iconsDemoPage/index.dart';
 import 'package:tablet/pages/buttonDemoPage/index.dart';

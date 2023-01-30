@@ -10,7 +10,7 @@ void main() {
     runApp(GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: APP_NAME,
-      initialRoute: '/',
+      initialRoute: '/home',
       getPages: AppRoutes.getRoutes,
       theme: customTheme,
     ));

@@ -34,11 +34,9 @@ class _LandingPageState extends State<LandingPage> {
           Get.offNamed(AppRoutes.chooseRestaurant);
         } else {
           try {
-            print(brandId is String);
             await UserApi.getProfile(brandId);
-            // Get.offNamed(AppRoutes.home);
+            Get.offNamed(AppRoutes.home);
           } on DioError catch (e) {
-            // print(e);
             setState(() {
               _error = e.message;
             });

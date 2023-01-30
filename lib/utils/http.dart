@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:tablet/components/toast.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/utils/config.dart';
 import 'package:tablet/utils/global.dart';
@@ -35,7 +34,7 @@ class Http {
   static List<String> noWithTokenUrl = ['api/auth/login', 'api/app/version'];
 
   // dio 拦截器
-// https://github.com/flutterchina/dio/blob/master/README-ZH.md#%E6%8B%A6%E6%88%AA%E5%99%A8
+  // https://github.com/flutterchina/dio/blob/master/README-ZH.md#%E6%8B%A6%E6%88%AA%E5%99%A8
   void _addInterceptors(Dio dio) {
     dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) {
@@ -49,23 +48,30 @@ class Http {
         return handler.next(options);
       },
       onResponse: (response, handler) {
-        bool success = response.data['success'];
-        if (success) return handler.next(response);
-        // 业务失败的情况下返回 DioError 类型对象 => handleReject 会走到 onError 里面
-        handler.reject(
-          DioError(
-            error: Exception(response.data['message']),
-            type: DioErrorType.response,
-            requestOptions: response.requestOptions,
-            response: response,
-          ),
-        );
+        if (response.data is Map) {
+          bool success = response.data['success'];
+          if (success) return handler.next(response);
+          // 业务失败的情况下返回 DioError 类型对象 => handleReject 会走到 onError 里面
+          handler.reject(
+            DioError(
+              error: Exception(response.data['message']),
+              type: DioErrorType.response,
+              requestOptions: response.requestOptions,
+            ),
+          );
+        } else {
+          // api 直接挂掉的情况
+          handler.reject(
+            DioError(
+              error: Exception(
+                  'Please make sure you are connected to the internet.'),
+              type: DioErrorType.response,
+              requestOptions: response.requestOptions,
+            ),
+          );
+        }
       },
       onError: (DioError e, handler) {
-        print('dio response error： --> ${e.response}；\n $e');
-        if (e.response == null) {
-          Toast.errorBar("Please make sure you are connected to the internet.");
-        }
         return handler.next(e);
       },
     ));
