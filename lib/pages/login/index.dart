@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tablet/components/radio.dart';
 import 'package:tablet/components/text.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/style/color.dart';
@@ -50,28 +51,27 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Expanded(
-                              child: RadioListTile(
-                                title: const RuText('Your Cellphone',
-                                    isBold: true),
-                                value: 'phone',
-                                groupValue: _currMode,
-                                onChanged: (v) => setState(() {
-                                  _currMode = v!;
-                                }),
-                              ),
+                            RuRadio(
+                              label: 'Your Cellphone',
+                              value: 'phone',
+                              groupValue: _currMode,
+                              onChanged: (v) {
+                                setState(() {
+                                  _currMode = v;
+                                });
+                              },
                             ),
-                            Expanded(
-                              child: RadioListTile(
-                                title: const RuText('Your Email', isBold: true),
-                                value: 'email',
-                                groupValue: _currMode,
-                                onChanged: (v) => setState(() {
-                                  _currMode = v!;
-                                }),
-                              ),
+                            RuRadio(
+                              label: 'Your Email',
+                              value: 'email',
+                              groupValue: _currMode,
+                              onChanged: (v) {
+                                setState(() {
+                                  _currMode = v;
+                                });
+                              },
                             ),
                           ],
                         ),

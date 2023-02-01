@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 ThemeData customTheme = ThemeData(
   primaryColor: const Color(0xFFFFB800),
   primarySwatch: createMaterialColor(const Color(0xFFFFB800)),
+  // useMaterial3: true, 采用 material3 设计规范
   // 去掉 TextButton 的水波纹效果
   // elevatedButtonTheme: const ElevatedButtonThemeData(
   //     style: ButtonStyle(splashFactory: NoSplash.splashFactory)),
