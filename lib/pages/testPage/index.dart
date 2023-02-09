@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tablet/components/button.dart';
+import 'package:tablet/pages/testPage/animated_my_button.dart';
+import 'package:tablet/pages/testPage/fade_in_out.dart';
+import 'package:tablet/pages/testPage/orientation.dart';
+import 'package:tablet/routes/index.dart';
 import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/http.dart';
 import 'package:tablet/utils/storage.dart';
@@ -38,14 +43,30 @@ class TestPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('测试 widget 效果'),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Wrap(
           spacing: 12,
+          runSpacing: 12,
           children: <Widget>[
             RuButton('写入token', onPressed: handleSetToken),
             RuButton('获取token', onPressed: handleGetToken),
             RuButton('dio测试', onPressed: handleDio),
             RuButton('show toast', onPressed: showToast),
+            ElevatedButton(
+              child: const Text('sliver page SNH48'),
+              onPressed: () => Get.toNamed(AppRoutes.sliver),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  // 横竖屏切换样式保持不变
+                  // Get.to(() => OrientationDemo());
+                  // 图片淡入淡出
+                  // Get.to(() => const FadeInOutImage());
+                  // 可变宽度按钮
+                  Get.to(() => const AnimatedMyButton());
+                },
+                child: const Text('效果'))
           ],
         ),
       ),

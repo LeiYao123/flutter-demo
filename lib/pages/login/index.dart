@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Center(
         child: SingleChildScrollView(
           child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.stretch,  stretch 交叉轴铺满解决 Column 交叉轴默认为其本身大小,
+            // crossAxisAlignment: CrossAxisAlignment.stretch, // stretch 交叉轴铺满解决 将父集的紧约束传递给自身
             children: [
               Image.asset(ImagePath.logo, height: 60),
               Center(

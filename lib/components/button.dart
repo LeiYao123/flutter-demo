@@ -108,6 +108,15 @@ class RuButton extends StatelessWidget {
     final mainAxisSize = isBlock ? MainAxisSize.max : MainAxisSize.min;
     final onClick = (disabled || loading) ? null : onPressed;
 
+// 详细自定义各种状态写的背景颜色，一般情况下 all 足矣
+// backgroundColor: MaterialStateProperty.resolveWith(
+// (Set<MaterialState> states) {
+// if (states.contains(MaterialState.disabled)) {
+// return Colors.black;
+// if (states.contains (MaterialState.pressed)) {
+// return Colors.blue;
+// return Colors.red;
+// ),
     final style = ButtonStyle(
       backgroundColor: isOutlined ? null : MaterialStateProperty.all(bgColor),
       foregroundColor: isOutlined
@@ -125,17 +134,9 @@ class RuButton extends StatelessWidget {
       children: _getChildren(),
     );
     if (isOutlined) {
-      return OutlinedButton(
-        onPressed: onClick,
-        style: style,
-        child: child,
-      );
+      return OutlinedButton(onPressed: onClick, style: style, child: child);
     }
-    return ElevatedButton(
-      onPressed: onClick,
-      style: style,
-      child: child,
-    );
+    return ElevatedButton(onPressed: onClick, style: style, child: child);
   }
 }
 

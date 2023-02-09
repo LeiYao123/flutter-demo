@@ -60,7 +60,7 @@ class _EmailFormState extends State<EmailForm> {
     return Column(
       children: [
         TextFormField(
-          key: const Key('login_email_input'),
+          // key: const ValueKey('login_email_input'),
           keyboardType: TextInputType.emailAddress,
           decoration: const InputDecoration(
             labelText: 'Email',
@@ -75,7 +75,7 @@ class _EmailFormState extends State<EmailForm> {
         ),
         const SizedBox(height: 16),
         TextFormField(
-          key: const Key('login_password_input'),
+          // key: const ValueKey('login_password_input'),
           obscureText: true,
           decoration: const InputDecoration(
             labelText: 'Password',

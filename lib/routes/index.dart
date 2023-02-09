@@ -6,6 +6,7 @@ import 'package:tablet/pages/home/index.dart';
 import 'package:tablet/pages/login/index.dart';
 import 'package:tablet/pages/iconsDemoPage/index.dart';
 import 'package:tablet/pages/buttonDemoPage/index.dart';
+import 'package:tablet/pages/sliver/index.dart';
 import 'package:tablet/pages/testPage/index.dart';
 
 class AppRoutes {
@@ -18,6 +19,7 @@ class AppRoutes {
   static String icons = '/icons';
   static String button = '/button';
   static String test = '/test';
+  static String sliver = '/sliver';
 
   static final List<GetPage> getRoutes = [
     GetPage(name: landing, page: () => const LandingPage()),
@@ -30,5 +32,6 @@ class AppRoutes {
     GetPage(name: icons, page: () => const IconsPage()),
     GetPage(name: button, page: () => const ButtonPage()),
     GetPage(name: test, page: () => const TestPage()),
+    GetPage(name: sliver, page: () => const SliverPage()),
   ];
 }

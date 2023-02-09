@@ -110,6 +110,10 @@ class MyHome extends StatelessWidget {
                     child: const Text('test widget'),
                     onPressed: () => Get.toNamed(AppRoutes.test),
                   ),
+                  ElevatedButton(
+                    child: const Text('sliver page SNH48'),
+                    onPressed: () => Get.toNamed(AppRoutes.sliver),
+                  ),
                 ],
               ),
             ],
