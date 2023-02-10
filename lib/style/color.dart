@@ -1,34 +1,30 @@
 import 'package:flutter/material.dart';
 
+// 自定义主题色 https://medium.com/@nickysong/creating-a-custom-color-swatch-in-flutter-554bcdcb27f3
+// 自定义 primarySwatch 生成器 http://mcg.mbitson.com/
+const int _primaryPrimaryValue = 0xFFFFB800;
+const MaterialColor primary = MaterialColor(_primaryPrimaryValue, <int, Color>{
+  50: Color(0xFFFFF6E0),
+  100: Color(0xFFFFEAB3),
+  200: Color(0xFFFFDC80),
+  300: Color(0xFFFFCD4D),
+  400: Color(0xFFFFC326),
+  500: Color(_primaryPrimaryValue),
+  600: Color(0xFFFFB100),
+  700: Color(0xFFFFA800),
+  800: Color(0xFFFFA000),
+  900: Color(0xFFFF9100),
+});
+
 ThemeData customTheme = ThemeData(
-  primaryColor: const Color(0xFFFFB800),
-  primarySwatch: createMaterialColor(const Color(0xFFFFB800)),
+  primaryColor: const Color(_primaryPrimaryValue),
+  primarySwatch: primary,
+
   // useMaterial3: true, 采用 material3 设计规范
   // 去掉 TextButton 的水波纹效果
   // elevatedButtonTheme: const ElevatedButtonThemeData(
   //     style: ButtonStyle(splashFactory: NoSplash.splashFactory)),
 );
-
-// 自定义主题色 https://medium.com/@nickysong/creating-a-custom-color-swatch-in-flutter-554bcdcb27f3
-MaterialColor createMaterialColor(Color color) {
-  List strengths = <double>[.05];
-  Map<int, Color> swatch = {};
-  final int r = color.red, g = color.green, b = color.blue;
-
-  for (int i = 1; i < 10; i++) {
-    strengths.add(0.1 * i);
-  }
-  for (var strength in strengths) {
-    final double ds = 0.5 - strength;
-    swatch[(strength * 1000).round()] = Color.fromRGBO(
-      r + ((ds < 0 ? r : (255 - r)) * ds).round(),
-      g + ((ds < 0 ? g : (255 - g)) * ds).round(),
-      b + ((ds < 0 ? b : (255 - b)) * ds).round(),
-      1,
-    );
-  }
-  return MaterialColor(color.value, swatch);
-}
 
 // 管理项目中用到的所有颜色
 class RuColor {

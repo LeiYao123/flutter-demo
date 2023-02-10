@@ -13,6 +13,7 @@ void main() {
       initialRoute: '/test',
       getPages: AppRoutes.getRoutes,
       theme: customTheme,
+      themeMode: ThemeMode.system,
     ));
   });
 }

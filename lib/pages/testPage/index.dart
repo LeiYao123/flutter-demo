@@ -4,6 +4,7 @@ import 'package:tablet/components/button.dart';
 import 'package:tablet/pages/testPage/animated_my_button.dart';
 import 'package:tablet/pages/testPage/fade_in_out.dart';
 import 'package:tablet/pages/testPage/orientation.dart';
+import 'package:tablet/pages/testPage/watermark.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/http.dart';
@@ -64,7 +65,9 @@ class TestPage extends StatelessWidget {
                   // 图片淡入淡出
                   // Get.to(() => const FadeInOutImage());
                   // 可变宽度按钮
-                  Get.to(() => const AnimatedMyButton());
+                  // Get.to(() => const AnimatedMyButton());
+                  // 水印效果
+                  Get.to(() => const WaterMarkDemo());
                 },
                 child: const Text('效果'))
           ],
