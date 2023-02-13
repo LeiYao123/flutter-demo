@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tablet/components/button.dart';
-import 'package:tablet/pages/testPage/animated_my_button.dart';
-import 'package:tablet/pages/testPage/fade_in_out.dart';
-import 'package:tablet/pages/testPage/orientation.dart';
-import 'package:tablet/pages/testPage/watermark.dart';
-import 'package:tablet/routes/index.dart';
+import 'package:tablet/components/button/button.dart';
+import './animated_my_button.dart';
+import './fade_in_out.dart';
+import './orientation.dart';
+import './watermark.dart';
 import 'package:tablet/style/color.dart';
 import 'package:tablet/style/theme.dart';
 import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/http.dart';
 import 'package:tablet/utils/storage.dart';
-import 'package:tablet/components/toast.dart';
+import 'package:tablet/components/toast/toast.dart';
 
-final tempColor = RuColor.black;
+final tempColor = RuColor.blackPure;
 
-class TestPage extends StatefulWidget {
-  const TestPage({super.key});
+class EffectDemoPage extends StatefulWidget {
+  const EffectDemoPage({super.key});
 
   @override
-  State<TestPage> createState() => _TestPageState();
+  State<EffectDemoPage> createState() => _EffectDemoPageState();
 }
 
-class _TestPageState extends State<TestPage> {
+class _EffectDemoPageState extends State<EffectDemoPage> {
   int _themeMode = 2;
 
   void handleDio() async {
@@ -62,7 +61,7 @@ class _TestPageState extends State<TestPage> {
 
   @override
   Widget build(BuildContext context) {
-    print('tempColor $tempColor  原始color ${RuColor.black}');
+    print('tempColor $tempColor  原始color ${RuColor.blackPure}');
     return Scaffold(
       appBar: AppBar(
         title: const Text('测试 widget 效果'),
@@ -77,12 +76,13 @@ class _TestPageState extends State<TestPage> {
             RuButton('获取token', onPressed: handleGetToken),
             RuButton('dio测试', onPressed: handleDio),
             RuButton('show toast', onPressed: showToast),
+            // ElevatedButton(
+            //   child: const Text('sliver page SNH48'),
+            //   onPressed: () => Get.toNamed(AppRoutes.sliver),
+            // ),
             ElevatedButton(
-              child: const Text('sliver page SNH48'),
-              onPressed: () => Get.toNamed(AppRoutes.sliver),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(foregroundColor: RuColor.black),
+              style:
+                  ElevatedButton.styleFrom(foregroundColor: RuColor.blackPure),
               onPressed: () {
                 // 横竖屏切换样式保持不变
                 // Get.to(() => OrientationDemo());
@@ -98,7 +98,7 @@ class _TestPageState extends State<TestPage> {
             const Divider(),
             Center(
                 child: Text('测试颜色RuColor.black',
-                    style: TextStyle(color: RuColor.black))),
+                    style: TextStyle(color: RuColor.blackPure))),
             Center(
                 child: Text('测试颜色RuColor.blue',
                     style: TextStyle(color: RuColor.blue))),

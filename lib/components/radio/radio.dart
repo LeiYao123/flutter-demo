@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tablet/components/text.dart';
+import 'package:tablet/components/text/text.dart';
 
 class RuRadio extends StatelessWidget {
   const RuRadio({

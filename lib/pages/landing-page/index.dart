@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tablet/apis/user.dart';
-import 'package:tablet/components/button.dart';
+import 'package:tablet/components/button/button.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/storage.dart';
@@ -35,7 +35,8 @@ class _LandingPageState extends State<LandingPage> {
         } else {
           try {
             await UserApi.getProfile(brandId);
-            Get.offNamed(AppRoutes.home);
+            // Get.offNamed(AppRoutes.home);
+            // 跳到首页
           } on DioError catch (e) {
             setState(() {
               _error = e.message;

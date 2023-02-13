@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:tablet/apis/user.dart';
-import 'package:tablet/components/button.dart';
-import 'package:tablet/components/text.dart';
-import 'package:tablet/components/toast.dart';
+import 'package:tablet/components/button/button.dart';
+import 'package:tablet/components/text/text.dart';
+import 'package:tablet/components/toast/toast.dart';
 import 'package:tablet/style/color.dart';
 
 class PhoneForm extends StatefulWidget {

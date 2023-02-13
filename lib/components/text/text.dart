@@ -26,7 +26,7 @@ class RuText extends StatelessWidget {
       text.toString(),
       style: TextStyle(
         fontSize: size,
-        color: color ?? RuColor.black,
+        color: color ?? RuColor.textHeavy,
         fontWeight: isBold ? FontWeight.w700 : weight,
         height: height,
         decoration: underline ? TextDecoration.underline : null,

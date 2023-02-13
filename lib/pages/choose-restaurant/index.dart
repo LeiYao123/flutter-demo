@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 import 'package:tablet/apis/brand.dart';
 import 'package:tablet/apis/user.dart';
-import 'package:tablet/components/text.dart';
-import 'package:tablet/components/toast.dart';
+import 'package:tablet/components/text/text.dart';
+import 'package:tablet/components/toast/toast.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/style/color.dart';
 import 'package:tablet/style/image.dart';
@@ -97,7 +97,8 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
       await Global.prefs.setString(StorageKey.brandId, _currBrandId);
       await Global.prefs.setString(StorageKey.locationId, locationId);
       _cancelChecked();
-      Get.offAllNamed(AppRoutes.home);
+      // Get.offAllNamed(AppRoutes.home);
+      // 跳到首页
     } catch (e) {
       print('request profile => $e');
     }
@@ -164,7 +165,7 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
             decoration: BoxDecoration(
               border: Border.all(
                 width: checked ? 2 : 1,
-                color: checked ? RuColor.yellow : RuColor.gray,
+                color: checked ? RuColor.yellow : RuColor.bgAbsolute,
               ),
               borderRadius: const BorderRadius.all(Radius.circular(4)),
             ),

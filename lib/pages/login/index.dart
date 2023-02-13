@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tablet/components/radio.dart';
-import 'package:tablet/components/text.dart';
+import 'package:tablet/components/radio/radio.dart';
+import 'package:tablet/components/text/text.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/style/color.dart';
 import 'package:tablet/style/image.dart';
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: RuColor.white,
+      backgroundColor: RuColor.bgAbsolute,
       body: Center(
         child: SingleChildScrollView(
           child: Column(

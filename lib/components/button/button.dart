@@ -78,14 +78,14 @@ class RuButton extends StatelessWidget {
 
   Map<BtnColorEnum, Color> backgroundColorMap = {
     BtnColorEnum.primary: RuColor.yellow,
-    BtnColorEnum.secondary: RuColor.gray,
+    BtnColorEnum.secondary: RuColor.bgPrimary,
     BtnColorEnum.warning: RuColor.red,
   };
 
   Map<BtnColorEnum, Color> foregroundColorMap = {
-    BtnColorEnum.primary: RuColor.black,
-    BtnColorEnum.secondary: RuColor.black,
-    BtnColorEnum.warning: RuColor.white,
+    BtnColorEnum.primary: RuColor.textHeavy,
+    BtnColorEnum.secondary: RuColor.textHeavy,
+    BtnColorEnum.warning: RuColor.textReverse,
   };
 
   @override

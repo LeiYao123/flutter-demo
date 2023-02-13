@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tablet/components/text.dart';
+import 'package:tablet/components/text/text.dart';
 
 class RuCheckbox extends StatelessWidget {
   const RuCheckbox({

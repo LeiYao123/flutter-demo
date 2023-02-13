@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tablet/style/icons.dart';
 import 'package:tablet/style/color.dart';
 
-class IconsPage extends StatelessWidget {
-  const IconsPage({super.key});
+class IconDemo extends StatelessWidget {
+  const IconDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,11 @@ class IconsPage extends StatelessWidget {
           spacing: 12.0,
           children: [
             Icon(Icons.add, color: RuColor.green, size: 32),
-            RuIcons.svg(IconPath.LinedStar, color: RuColor.gray, size: 64.0),
+            RuIcons.svg(
+              IconPath.LinedStar,
+              color: RuColor.bgPrimary,
+              size: 64.0,
+            ),
             RuIcons.svg(IconPath.OrderDash, noColor: true),
             RuIcons.svg(IconPath.PaymentVisa, noColor: true),
             RuIcons.svg(IconPath.SolidStar, color: RuColor.green),

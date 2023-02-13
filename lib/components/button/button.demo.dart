@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tablet/style/icons.dart';
 import 'package:tablet/style/color.dart';
-import 'package:tablet/components/button.dart';
+import './button.dart';
 
-class ButtonPage extends StatelessWidget {
-  const ButtonPage({super.key});
+class ButtonDemo extends StatelessWidget {
+  const ButtonDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Icons 展示'),
+        title: const Text('Button 展示'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),

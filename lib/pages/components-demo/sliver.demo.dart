@@ -2,14 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SliverPage extends StatefulWidget {
-  const SliverPage({super.key});
+class SliverDemoPage extends StatefulWidget {
+  const SliverDemoPage({super.key});
 
   @override
-  State<SliverPage> createState() => _SliverPageState();
+  State<SliverDemoPage> createState() => _SliverDemoPageState();
 }
 
-class _SliverPageState extends State<SliverPage> {
+class _SliverDemoPageState extends State<SliverDemoPage> {
   List<Member> _members = [];
   List<Map> _tnames = [];
 

@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/store/user.controller.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class ComponentsDemo extends StatefulWidget {
+  const ComponentsDemo({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ComponentsDemo> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<ComponentsDemo> {
   final UserController uc = Get.find<UserController>();
   int _pageIndex = 0;
 
@@ -93,27 +93,27 @@ class MyHome extends StatelessWidget {
                     child: const Text('login page'),
                     onPressed: () => Get.offNamed(AppRoutes.login),
                   ),
-                  ElevatedButton(
-                    child: const Text('icons demo'),
-                    onPressed: () => Get.toNamed(AppRoutes.icons),
-                  ),
-                  ElevatedButton(
-                    child: const Text('button demo'),
-                    onPressed: () => Get.toNamed(AppRoutes.button),
-                  ),
-                  ElevatedButton(
-                    child: const Text('switch brand'),
-                    onPressed: () =>
-                        Get.offAllNamed(AppRoutes.chooseRestaurant),
-                  ),
-                  ElevatedButton(
-                    child: const Text('test widget'),
-                    onPressed: () => Get.toNamed(AppRoutes.test),
-                  ),
-                  ElevatedButton(
-                    child: const Text('sliver page SNH48'),
-                    onPressed: () => Get.toNamed(AppRoutes.sliver),
-                  ),
+                  // ElevatedButton(
+                  //   child: const Text('icons demo'),
+                  //   onPressed: () => Get.toNamed(AppRoutes.icons),
+                  // ),
+                  // ElevatedButton(
+                  //   child: const Text('button demo'),
+                  //   onPressed: () => Get.toNamed(AppRoutes.button),
+                  // ),
+                  // ElevatedButton(
+                  //   child: const Text('switch brand'),
+                  //   onPressed: () =>
+                  //       Get.offAllNamed(AppRoutes.chooseRestaurant),
+                  // ),
+                  // ElevatedButton(
+                  //   child: const Text('test widget'),
+                  //   onPressed: () => Get.toNamed(AppRoutes.test),
+                  // ),
+                  // ElevatedButton(
+                  //   child: const Text('sliver page SNH48'),
+                  //   onPressed: () => Get.toNamed(AppRoutes.sliver),
+                  // ),
                 ],
               ),
             ],

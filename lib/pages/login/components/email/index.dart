@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:tablet/components/button.dart';
-import 'package:tablet/components/checkbox.dart';
-import 'package:tablet/components/toast.dart';
+import 'package:tablet/components/button/button.dart';
+import 'package:tablet/components/checkbox/checkbox.dart';
+import 'package:tablet/components/toast/toast.dart';
 import 'package:tablet/apis/user.dart';
 import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/storage.dart';

@@ -25,7 +25,7 @@ class Toast {
     return _getFlushBar(
       message: message,
       icon: const Icon(Icons.sms, color: Colors.white),
-      backgroundColor: RuColor.gray,
+      backgroundColor: RuColor.textHeavy,
     );
   }
 

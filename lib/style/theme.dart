@@ -6,22 +6,29 @@ import 'package:tablet/utils/storage.dart';
 class AppTheme {
   // 自定义主题色 https://medium.com/@nickysong/creating-a-custom-color-swatch-in-flutter-554bcdcb27f3
   // 自定义 primarySwatch 生成器 http://mcg.mbitson.com/
-  static const int _primaryPrimaryValue = 0xFFFFB800;
-  static const MaterialColor primary = MaterialColor(
-    _primaryPrimaryValue,
-    <int, Color>{
-      50: Color(0xFFFFF6E0),
-      100: Color(0xFFFFEAB3),
-      200: Color(0xFFFFDC80),
-      300: Color(0xFFFFCD4D),
-      400: Color(0xFFFFC326),
-      500: Color(_primaryPrimaryValue),
-      600: Color(0xFFFFB100),
-      700: Color(0xFFFFA800),
-      800: Color(0xFFFFA000),
-      900: Color(0xFFFF9100),
-    },
-  );
+  static const MaterialColor primary =
+      MaterialColor(_primaryPrimaryValue, <int, Color>{
+    50: Color(0xFFFFF7E1),
+    100: Color(0xFFFFEBB5),
+    200: Color(0xFFFFDD84),
+    300: Color(0xFFFFCF52),
+    400: Color(0xFFFFC52D),
+    500: Color(_primaryPrimaryValue),
+    600: Color(0xFFFFB507),
+    700: Color(0xFFFFAC06),
+    800: Color(0xFFFFA404),
+    900: Color(0xFFFF9602),
+  });
+  static const int _primaryPrimaryValue = 0xFFFFBB08;
+
+  static const MaterialColor primaryAccent =
+      MaterialColor(_primaryAccentValue, <int, Color>{
+    100: Color(0xFFFFFFFF),
+    200: Color(_primaryAccentValue),
+    400: Color(0xFFFFE2BF),
+    700: Color(0xFFFFD6A6),
+  });
+  static const int _primaryAccentValue = 0xFFFFF9F2;
 
   static ThemeData lightTheme = ThemeData(
     primaryColor: const Color(_primaryPrimaryValue),
@@ -63,4 +70,4 @@ class AppTheme {
   // useMaterial3: true, 采用 material3 设计规范
   // 去掉 TextButton 的水波纹效果
   // elevatedButtonTheme: const ElevatedButtonThemeData(
-  //     style: ButtonStyle(splashFactory: NoSplash.splashFactory)),
+  // style: ButtonStyle(splashFactory: NoSplash.splashFactory)),
