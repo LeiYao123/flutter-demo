@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tablet/routes/index.dart';
-import 'package:tablet/style/color.dart';
+import 'package:tablet/style/theme.dart';
 import 'package:tablet/utils/config.dart';
 import 'package:tablet/utils/global.dart';
 
@@ -12,8 +12,9 @@ void main() {
       title: APP_NAME,
       initialRoute: '/test',
       getPages: AppRoutes.getRoutes,
-      theme: customTheme,
-      themeMode: ThemeMode.system,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: AppTheme.getThemeMode,
     ));
   });
 }

@@ -16,7 +16,7 @@ class IconsPage extends StatelessWidget {
         child: Wrap(
           spacing: 12.0,
           children: [
-            const Icon(Icons.add, color: RuColor.green, size: 32),
+            Icon(Icons.add, color: RuColor.green, size: 32),
             RuIcons.svg(IconPath.LinedStar, color: RuColor.gray, size: 64.0),
             RuIcons.svg(IconPath.OrderDash, noColor: true),
             RuIcons.svg(IconPath.PaymentVisa, noColor: true),

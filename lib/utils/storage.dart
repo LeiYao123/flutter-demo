@@ -6,4 +6,6 @@ class StorageKey {
   static const password = 'USER_PASSWORD';
   static const brandId = 'USER_BRAND_ID';
   static const locationId = 'USER_LOCATION_ID';
+  // 深色模式： 0 关闭 1 开启 2 跟随系统
+  static const themeMode = 'THEME_MODE';
 }

@@ -17,31 +17,20 @@ const Map<BtnSizeEnum, List<double>> paddingSizeMap = {
   BtnSizeEnum.lg: [24, 22],
 };
 
-const Map<BtnColorEnum, Color> backgroundColorMap = {
-  BtnColorEnum.primary: RuColor.yellow,
-  BtnColorEnum.secondary: RuColor.gray,
-  BtnColorEnum.warning: RuColor.red,
-};
-
-const Map<BtnColorEnum, Color> foregroundColorMap = {
-  BtnColorEnum.primary: RuColor.black,
-  BtnColorEnum.secondary: RuColor.black,
-  BtnColorEnum.warning: RuColor.white,
-};
-
 class RuButton extends StatelessWidget {
   final String text;
-  final BtnColorEnum color;
+  final BtnColorEnum? color;
   final BtnSizeEnum size;
   // 外边框，是否独占一行，禁用，loading
   final bool isOutlined, isBlock, disabled, loading;
   final Widget? iconBefore;
   final Widget? iconAfter;
   final Function() onPressed;
-  const RuButton(
+  RuButton(
     this.text, {
     super.key,
-    this.color = BtnColorEnum.primary,
+    // this.color = BtnColorEnum.primary,
+    this.color,
     this.size = BtnSizeEnum.md,
     this.isOutlined = false,
     this.isBlock = false,
@@ -87,10 +76,22 @@ class RuButton extends StatelessWidget {
     return btnChildren;
   }
 
+  Map<BtnColorEnum, Color> backgroundColorMap = {
+    BtnColorEnum.primary: RuColor.yellow,
+    BtnColorEnum.secondary: RuColor.gray,
+    BtnColorEnum.warning: RuColor.red,
+  };
+
+  Map<BtnColorEnum, Color> foregroundColorMap = {
+    BtnColorEnum.primary: RuColor.black,
+    BtnColorEnum.secondary: RuColor.black,
+    BtnColorEnum.warning: RuColor.white,
+  };
+
   @override
   Widget build(BuildContext context) {
-    final bgColor = backgroundColorMap[color];
-    final fgColor = foregroundColorMap[color];
+    final bgColor = backgroundColorMap[color ?? BtnColorEnum.primary];
+    final fgColor = foregroundColorMap[color ?? BtnColorEnum.primary];
     final shape = RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(8.0),
     );

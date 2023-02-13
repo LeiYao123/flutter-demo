@@ -95,7 +95,7 @@ class _PhoneFormState extends State<PhoneForm> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    child: const RuText('Go Back', color: RuColor.yellow),
+                    child: RuText('Go Back', color: RuColor.yellow),
                     onTap: () {
                       setState(() {
                         _currMode = 'phone';
@@ -106,7 +106,7 @@ class _PhoneFormState extends State<PhoneForm> {
                   const RuText(' | '),
                   InkWell(
                     onTap: _handleGetCode,
-                    child: const RuText('Go Back', color: RuColor.yellow),
+                    child: RuText('Go Back', color: RuColor.yellow),
                   ),
                 ],
               )
