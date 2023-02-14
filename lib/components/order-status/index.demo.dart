@@ -8,7 +8,29 @@ class OrderStatusCircleDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Order Status Circle')),
-      body: OrderStatus(),
+      body: Center(
+        child: SizedBox(
+          width: 180,
+          height: 300,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              OrderStatus(
+                  status: OrderStatusEnum.asap, child: Text('New Order ASAP')),
+              OrderStatus(
+                  status: OrderStatusEnum.schedule,
+                  child: Text('New Order Schedule')),
+              OrderStatus(
+                  status: OrderStatusEnum.rejected, child: Text('Rejected')),
+              OrderStatus(
+                  status: OrderStatusEnum.confirmed, child: Text('Confirmed')),
+              OrderStatus(status: OrderStatusEnum.ready, child: Text('Ready')),
+              OrderStatus(
+                  status: OrderStatusEnum.completed, child: Text('Complete')),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

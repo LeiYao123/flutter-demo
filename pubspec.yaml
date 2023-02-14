@@ -75,6 +75,12 @@ flutter:
     - assets/icons/Payment/Visa.svg
     - assets/icons/Solid/star.svg
     - assets/icons/Traffic/Direct.svg
+    - assets/icons/OrderStatus/ASAP.svg
+    - assets/icons/OrderStatus/Complete.svg
+    - assets/icons/OrderStatus/Confirmed.svg
+    - assets/icons/OrderStatus/Ready.svg
+    - assets/icons/OrderStatus/Rejected.svg
+    - assets/icons/OrderStatus/Scheduled.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

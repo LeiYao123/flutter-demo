@@ -68,6 +68,7 @@ class AppTheme {
 
 
   // useMaterial3: true, 采用 material3 设计规范
-  // 去掉 TextButton 的水波纹效果
+  // 去掉 Button 的水波纹效果
+  // MaterialStateProperty.resolveWith<Color>((states) => bgColor.withOpacity(0.1))
   // elevatedButtonTheme: const ElevatedButtonThemeData(
   // style: ButtonStyle(splashFactory: NoSplash.splashFactory)),

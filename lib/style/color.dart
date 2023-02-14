@@ -42,21 +42,21 @@ class RuColor {
   static Color get common_2 =>
       Get.isDarkMode ? const Color(0XFF242424) : const Color(0XFFFAFAFA);
 
-  // 不跟随系统模式变化
-  static Color whitePure = const Color(0XFFFFFFFF);
-  static Color whiteTransparent = const Color.fromRGBO(255, 255, 255, 0.12);
-  static Color blackPure = const Color(0XFF000000);
-  static Color blackTransparent = const Color.fromRGBO(0, 0, 0, 0.12);
-  static Color green = const Color(0XFF00CA9F);
-  static Color greenHeavy = const Color(0XFF00A179);
-  static Color greenTransparent = const Color.fromRGBO(0, 202, 159, 0.08);
-  static Color blue = const Color(0XFF00A5EB);
-  static Color blueHeavy = const Color(0XFF0084C7);
-  static Color blueTransparent = const Color.fromRGBO(0, 132, 199, 0.08);
-  static Color yellow = const Color(0XFFFFBB08);
-  static Color yellowHeavy = const Color(0XFFDCB504);
-  static Color yellowTransparent = const Color.fromRGBO(255, 187, 8, 0.08);
-  static Color red = const Color(0XFFEF4A41);
-  static Color redHeavy = const Color(0XFFCB2628);
-  static Color redTransparent = const Color.fromRGBO(239, 74, 65, 0.08);
+  /// 不跟随系统模式变化
+  static const Color whitePure = Color(0XFFFFFFFF);
+  static const Color whiteTransparent = Color.fromRGBO(255, 255, 255, 0.12);
+  static const Color blackPure = Color(0XFF000000);
+  static const Color blackTransparent = Color.fromRGBO(0, 0, 0, 0.12);
+  static const Color green = Color(0XFF00CA9F);
+  static const Color greenHeavy = Color(0XFF00A179);
+  static const Color greenTransparent = Color.fromRGBO(0, 202, 159, 0.08);
+  static const Color blue = Color(0XFF00A5EB);
+  static const Color blueHeavy = Color(0XFF0084C7);
+  static const Color blueTransparent = Color.fromRGBO(0, 132, 199, 0.08);
+  static const Color yellow = Color(0XFFFFBB08);
+  static const Color yellowHeavy = Color(0XFFDCB504);
+  static const Color yellowTransparent = Color.fromRGBO(255, 187, 8, 0.08);
+  static const Color red = Color(0XFFEF4A41);
+  static const Color redHeavy = Color(0XFFCB2628);
+  static const Color redTransparent = Color.fromRGBO(239, 74, 65, 0.08);
 }
