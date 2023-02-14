@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tablet/apis/user.dart';
-import 'package:tablet/components/button/button.dart';
+import 'package:tablet/components/button/index.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/storage.dart';

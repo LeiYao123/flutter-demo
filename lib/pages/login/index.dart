@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tablet/components/radio/radio.dart';
-import 'package:tablet/components/text/text.dart';
+import 'package:tablet/components/radio/index.dart';
+import 'package:tablet/components/text/index.dart';
 import 'package:tablet/routes/index.dart';
 import 'package:tablet/style/color.dart';
 import 'package:tablet/style/image.dart';

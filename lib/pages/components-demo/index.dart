@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tablet/components/button/button.dart';
+import 'package:tablet/components/button/index.dart';
 import 'package:tablet/components/button/button.demo.dart';
-import 'package:tablet/components/text/text.dart';
+import 'package:tablet/components/order-status/index.demo.dart';
+import 'package:tablet/components/text/index.dart';
 import 'color.demo.dart';
 import 'icon.demo.dart';
 import 'sliver.demo.dart';
@@ -30,18 +31,15 @@ class ComponentsDemo extends StatelessWidget {
                   spacing: 32,
                   runSpacing: 32,
                   children: [
-                    RuButton(
-                      'color demo',
-                      onPressed: () => Get.to(() => ColorDemoPage()),
-                    ),
-                    RuButton(
-                      'button demo',
-                      onPressed: () => Get.to(() => const ButtonDemo()),
-                    ),
-                    RuButton(
-                      'icon demo',
-                      onPressed: () => Get.to(() => const IconDemo()),
-                    ),
+                    RuButton('color demo',
+                        onPressed: () => Get.to(() => ColorDemoPage())),
+                    RuButton('button demo',
+                        onPressed: () => Get.to(() => const ButtonDemo())),
+                    RuButton('icon demo',
+                        onPressed: () => Get.to(() => const IconDemo())),
+                    RuButton('order status circle demo',
+                        onPressed: () =>
+                            Get.to(() => const OrderStatusCircleDemo())),
                   ],
                 ),
                 const SizedBox(height: 32),
@@ -52,14 +50,10 @@ class ComponentsDemo extends StatelessWidget {
                   spacing: 32,
                   runSpacing: 32,
                   children: [
-                    RuButton(
-                      'sliver demo',
-                      onPressed: () => Get.to(() => const SliverDemoPage()),
-                    ),
-                    RuButton(
-                      'effect demo',
-                      onPressed: () => Get.to(() => const EffectDemoPage()),
-                    ),
+                    RuButton('sliver demo',
+                        onPressed: () => Get.to(() => const SliverDemoPage())),
+                    RuButton('effect demo',
+                        onPressed: () => Get.to(() => const EffectDemoPage())),
                   ],
                 ),
               ],

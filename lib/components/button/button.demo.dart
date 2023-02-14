@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tablet/style/icons.dart';
 import 'package:tablet/style/color.dart';
-import './button.dart';
+import 'index.dart';
 
 class ButtonDemo extends StatelessWidget {
   const ButtonDemo({super.key});

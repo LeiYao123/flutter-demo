@@ -156,7 +156,8 @@ class ColorDemoPage extends StatelessWidget {
     {
       'text': 'BG / Reverse <Light>',
       'colorDesc': '000000',
-      'color': RuColor.bgReverse
+      'color': RuColor.bgReverse,
+      'fcolor': Colors.white,
     },
     {
       'text': 'Common / 120 Absolute <Light>',

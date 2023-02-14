@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tablet/components/button/button.dart';
+import 'package:tablet/components/button/index.dart';
 import './animated_my_button.dart';
 import './fade_in_out.dart';
 import './orientation.dart';
@@ -10,7 +10,7 @@ import 'package:tablet/style/theme.dart';
 import 'package:tablet/utils/global.dart';
 import 'package:tablet/utils/http.dart';
 import 'package:tablet/utils/storage.dart';
-import 'package:tablet/components/toast/toast.dart';
+import 'package:tablet/components/toast/index.dart';
 
 final tempColor = RuColor.blackPure;
 
