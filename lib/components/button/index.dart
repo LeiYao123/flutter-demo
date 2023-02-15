@@ -9,54 +9,64 @@ const Map<BtnSizeEnum, double> fontSizeMap = {
   BtnSizeEnum.lg: 18,
 };
 
-const Map<BtnSizeEnum, List<double>> paddingSizeMap = {
-  BtnSizeEnum.sm: [16, 10],
-  BtnSizeEnum.md: [16, 13],
-  BtnSizeEnum.lg: [16, 17.5],
+const Map<BtnSizeEnum, double> heightMap = {
+  BtnSizeEnum.sm: 36,
+  BtnSizeEnum.md: 48,
+  BtnSizeEnum.lg: 60,
 };
 
 class RuButton extends StatelessWidget {
   final String text;
+
+  /// 自定义 child 否则使用 text
+  final Widget? child;
   final Color? bgColor;
   final Color? fgColor;
   final EdgeInsets? margin;
   final double? width;
   final BtnSizeEnum size;
-  // 外边框，是否独占一行，禁用，loading
-  final bool isOutlined, isBlock, disabled, loading;
+
   final Function()? onPressed;
+
+  /// 外边框，是否独占一行，禁用，loading
+  final bool isOutlined, isBlock, disabled, loading;
   const RuButton(
     this.text, {
     super.key,
+    this.child,
     this.onPressed,
     this.bgColor = RuColor.yellow,
     this.fgColor = RuColor.blackPure,
     this.size = BtnSizeEnum.md,
+    this.margin,
+    this.width,
     this.isOutlined = false,
     this.isBlock = false,
     this.disabled = false,
     this.loading = false,
-    this.margin,
-    this.width,
   });
 
-  List<Widget> _getChildren() {
-    List<Widget> btnChildren = [Text(text)];
+  Widget _getBtnChild() {
+    Widget child = Text(text);
     if (loading) {
-      btnChildren = [
-        SizedBox(
-          height: fontSizeMap[size],
-          width: fontSizeMap[size],
-          child: CircularProgressIndicator(
-            strokeWidth: 3.0,
-            valueColor: AlwaysStoppedAnimation(isOutlined ? bgColor : fgColor),
+      child = Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            width: fontSizeMap[size],
+            height: fontSizeMap[size],
+            child: CircularProgressIndicator(
+              strokeWidth: 3.0,
+              valueColor:
+                  AlwaysStoppedAnimation(isOutlined ? bgColor : fgColor),
+            ),
           ),
-        ),
-        const SizedBox(width: 8),
-        Text(text)
-      ];
+          const SizedBox(width: 8),
+          Text(text)
+        ],
+      );
     }
-    return btnChildren;
+    return child;
   }
 
   ButtonStyle _getButtonStyle() {
@@ -69,10 +79,7 @@ class RuButton extends StatelessWidget {
       fontSize: fontSizeMap[size],
     );
 
-    final padding = EdgeInsets.symmetric(
-      horizontal: paddingSizeMap[size]![0],
-      vertical: paddingSizeMap[size]![1],
-    );
+    const padding = EdgeInsets.symmetric(horizontal: 16);
 
     final backgroundColor = disabled ? RuColor.common_16 : bgColor;
     final foregroundColor = disabled ? RuColor.common_32 : fgColor;
@@ -102,37 +109,25 @@ class RuButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final onClick = (disabled || loading) ? null : onPressed;
 
-    final child = Row(
-      mainAxisSize: MainAxisSize.min,
-      children: _getChildren(),
-    );
-
     return Container(
       margin: margin,
       width: isBlock ? double.infinity : width,
+      height: heightMap[size],
       // constraints: BoxConstraints(minWidth: 120),
       child: isOutlined
           ? OutlinedButton(
               onPressed: onClick,
               style: _getButtonStyle(),
-              child: child,
+              child: child ?? _getBtnChild(),
             )
           : ElevatedButton(
               onPressed: onClick,
               style: _getButtonStyle(),
-              child: child,
+              child: child ?? _getBtnChild(),
             ),
     );
   }
 }
-
-// Icon button 组件
-
-const Map<BtnSizeEnum, double> iconBtnMap = {
-  BtnSizeEnum.sm: 36,
-  BtnSizeEnum.md: 48,
-  BtnSizeEnum.lg: 60,
-};
 
 class RuIconButton extends StatelessWidget {
   final Widget icon;
@@ -154,9 +149,7 @@ class RuIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final btnSize = iconBtnMap[size]!;
     final style = ButtonStyle(
-      minimumSize: MaterialStateProperty.all(Size(btnSize, btnSize)),
       shape: MaterialStateProperty.all(const CircleBorder()),
       elevation: MaterialStateProperty.all(0),
       backgroundColor: isOutlined ? null : MaterialStateProperty.all(bgColor),
@@ -169,6 +162,8 @@ class RuIconButton extends StatelessWidget {
           : null,
     );
     return Container(
+      width: heightMap[size]!,
+      height: heightMap[size]!,
       margin: margin,
       child: isOutlined
           ? OutlinedButton(onPressed: onPressed, style: style, child: icon)
@@ -176,3 +171,16 @@ class RuIconButton extends StatelessWidget {
     );
   }
 }
+
+
+// 直接通过 ButtonStyle 设置按钮尺寸
+// minimumSize: MaterialStateProperty.all(Size(btnSize, btnSize)),
+
+// const Map<BtnSizeEnum, List<double>> paddingSizeMap = {
+//   BtnSizeEnum.sm: [16, 10],
+//   BtnSizeEnum.md: [16, 13],
+//   BtnSizeEnum.lg: [16, 17.5],
+//   // BtnSizeEnum.sm: [16, 10],
+//   // BtnSizeEnum.md: [16, 13],
+//   // BtnSizeEnum.lg: [16, 17.5],
+// };

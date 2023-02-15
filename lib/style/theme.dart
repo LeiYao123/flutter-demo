@@ -72,3 +72,7 @@ class AppTheme {
   // MaterialStateProperty.resolveWith<Color>((states) => bgColor.withOpacity(0.1))
   // elevatedButtonTheme: const ElevatedButtonThemeData(
   // style: ButtonStyle(splashFactory: NoSplash.splashFactory)),
+
+  // flutter 布局原则 => 逻辑像素(类似安卓 dp 单位)，比如写了 100dp 
+  // 物理像素 = devicePixelRatio * 逻辑像素
+  // 不论在任何尺寸的设备上代表的实际物理尺寸都是相同的（由 flutter 引擎处理）

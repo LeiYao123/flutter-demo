@@ -43,6 +43,22 @@ class ButtonDemo extends StatelessWidget {
             bgColor: RuColor.red,
             isOutlined: true,
             onPressed: () {}),
+        RuButton(
+          '自定义 child',
+          size: BtnSizeEnum.sm,
+          bgColor: RuColor.yellow,
+          onPressed: () {},
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RuIcons.svg(IconPath.LinedStar, size: 16),
+              const SizedBox(width: 8),
+              const Text('自定义child'),
+              const SizedBox(width: 8),
+              RuIcons.svg(IconPath.SolidStar, size: 16),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -72,6 +88,21 @@ class ButtonDemo extends StatelessWidget {
             bgColor: RuColor.green, isOutlined: true, onPressed: () {}),
         RuButton('outlined',
             bgColor: RuColor.red, isOutlined: true, onPressed: () {}),
+        RuButton(
+          '自定义 child',
+          bgColor: RuColor.yellow,
+          onPressed: () {},
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RuIcons.svg(IconPath.LinedStar, size: 20),
+              const SizedBox(width: 8),
+              const Text('自定义child'),
+              const SizedBox(width: 8),
+              RuIcons.svg(IconPath.SolidStar, size: 20),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -82,13 +113,6 @@ class ButtonDemo extends StatelessWidget {
       spacing: 16,
       runSpacing: 16,
       children: [
-        RuButton(
-          'disabled',
-          disabled: true,
-          size: BtnSizeEnum.lg,
-          bgColor: RuColor.yellow,
-          onPressed: () {},
-        ),
         RuButton('yellow',
             size: BtnSizeEnum.lg, bgColor: RuColor.yellow, onPressed: () {}),
         RuButton(
@@ -105,12 +129,6 @@ class ButtonDemo extends StatelessWidget {
           fgColor: RuColor.whitePure,
           onPressed: () {},
         ),
-        RuButton('outlined disabled',
-            disabled: true,
-            size: BtnSizeEnum.lg,
-            bgColor: RuColor.yellow,
-            isOutlined: true,
-            onPressed: () {}),
         RuButton('outlined',
             size: BtnSizeEnum.lg,
             bgColor: RuColor.yellow,
@@ -126,6 +144,22 @@ class ButtonDemo extends StatelessWidget {
             bgColor: RuColor.red,
             isOutlined: true,
             onPressed: () {}),
+        RuButton(
+          '自定义 child',
+          size: BtnSizeEnum.lg,
+          bgColor: RuColor.yellow,
+          onPressed: () {},
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RuIcons.svg(IconPath.LinedStar, size: 24),
+              const SizedBox(width: 8),
+              const Text('自定义child'),
+              const SizedBox(width: 8),
+              RuIcons.svg(IconPath.SolidStar, size: 24),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -171,6 +205,29 @@ class ButtonDemo extends StatelessWidget {
     );
   }
 
+  Widget _getDisabledBtn() {
+    return Wrap(
+      alignment: WrapAlignment.start,
+      spacing: 16,
+      runSpacing: 16,
+      children: [
+        RuButton(
+          'disabled',
+          disabled: true,
+          size: BtnSizeEnum.lg,
+          bgColor: RuColor.yellow,
+          onPressed: () {},
+        ),
+        RuButton('outlined disabled',
+            disabled: true,
+            size: BtnSizeEnum.lg,
+            bgColor: RuColor.yellow,
+            isOutlined: true,
+            onPressed: () {}),
+      ],
+    );
+  }
+
   Widget _getIconBtn() {
     return Wrap(
       children: [
@@ -189,8 +246,70 @@ class ButtonDemo extends StatelessWidget {
     );
   }
 
+  List<Widget> _getAverageBtn() {
+    return [
+      const SizedBox(height: 32),
+      const Text('左右平分的button'),
+      const Divider(),
+      Row(
+        children: [
+          Expanded(
+            child: RuButton(
+              'Back',
+              size: BtnSizeEnum.lg,
+              bgColor: RuColor.common_4,
+              onPressed: () {},
+            ),
+          ),
+          const SizedBox(width: 24),
+          Expanded(
+            child: RuButton(
+              'Confirm',
+              fgColor: RuColor.whitePure,
+              bgColor: RuColor.red,
+              size: BtnSizeEnum.lg,
+              onPressed: () {},
+            ),
+          ),
+        ],
+      ),
+      const SizedBox(height: 32),
+      const Text('Expanded button'),
+      const Divider(),
+      Row(
+        children: [
+          RuButton(
+            'Back',
+            size: BtnSizeEnum.lg,
+            width: 120,
+            bgColor: RuColor.common_4,
+            onPressed: () {},
+          ),
+          Expanded(
+            child: RuButton(
+              'Confirm',
+              margin: const EdgeInsets.only(left: 16.0),
+              size: BtnSizeEnum.lg,
+              onPressed: () {},
+            ),
+          ),
+        ],
+      ),
+      RuButton(
+        '独占一行的 button',
+        isBlock: true,
+        size: BtnSizeEnum.lg,
+        margin: const EdgeInsets.symmetric(vertical: 32),
+        onPressed: () {},
+      ),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
+    final mediaQueryData = MediaQuery.of(context);
+    print(mediaQueryData);
+
     return Scaffold(
       appBar: AppBar(title: const Text('Button 展示')),
       body: SingleChildScrollView(
@@ -202,71 +321,27 @@ class ButtonDemo extends StatelessWidget {
             const Text('sm'),
             const Divider(),
             _getsmBtn(),
-            const SizedBox(height: 32), const Text('md'),
+            const SizedBox(height: 32),
+            const Text('md'),
             const Divider(),
             _getmdBtn(),
-            const SizedBox(height: 32), const Text('lg'),
+            const SizedBox(height: 32),
+            const Text('lg'),
             const Divider(),
             _getLgBtn(),
-            const SizedBox(height: 32), const Text('md loading'),
+            const SizedBox(height: 32),
+            const Text('md loading'),
             const Divider(),
             _getmdLoadingBtn(),
-            const SizedBox(height: 32), const Text('icon button'),
+            const SizedBox(height: 32),
+            const Text('lg disabled'),
+            const Divider(),
+            _getDisabledBtn(),
+            const SizedBox(height: 32),
+            const Text('icon button'),
             const Divider(),
             _getIconBtn(),
-            const SizedBox(height: 32), const Text('左右平分的button'),
-            const Divider(),
-            Row(
-              children: [
-                Expanded(
-                  child: RuButton(
-                    'Back',
-                    size: BtnSizeEnum.lg,
-                    bgColor: RuColor.common_4,
-                    onPressed: () {},
-                  ),
-                ),
-                const SizedBox(width: 24),
-                Expanded(
-                  child: RuButton(
-                    'Confirm',
-                    fgColor: RuColor.whitePure,
-                    bgColor: RuColor.red,
-                    size: BtnSizeEnum.lg,
-                    onPressed: () {},
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 32), const Text('Expanded button'),
-            const Divider(),
-            Row(
-              children: [
-                RuButton(
-                  'Back',
-                  size: BtnSizeEnum.lg,
-                  width: 120,
-                  bgColor: RuColor.common_4,
-                  onPressed: () {},
-                ),
-                Expanded(
-                  child: RuButton(
-                    'Confirm',
-                    margin: const EdgeInsets.only(left: 16.0),
-                    size: BtnSizeEnum.lg,
-                    onPressed: () {},
-                  ),
-                ),
-              ],
-            ),
-            RuButton(
-              '独占一行的 button',
-              isBlock: true,
-              size: BtnSizeEnum.lg,
-              margin: const EdgeInsets.symmetric(vertical: 32),
-              onPressed: () {},
-            ),
-            // RuButton('独占一行的button', isBlock: true, onPressed: () {})
+            ..._getAverageBtn(),
           ],
         ),
       ),
