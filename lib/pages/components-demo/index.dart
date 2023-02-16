@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tablet/components/Drawer/index.demo.dart';
 import 'package:tablet/components/button/index.dart';
 import 'package:tablet/components/button/button.demo.dart';
 import 'package:tablet/components/order-status/index.demo.dart';
@@ -28,8 +29,8 @@ class ComponentsDemo extends StatelessWidget {
                 const Divider(),
                 Wrap(
                   direction: Axis.horizontal,
-                  spacing: 32,
-                  runSpacing: 32,
+                  spacing: 24,
+                  runSpacing: 24,
                   children: [
                     RuButton('color demo',
                         onPressed: () => Get.to(() => ColorDemoPage())),
@@ -40,6 +41,8 @@ class ComponentsDemo extends StatelessWidget {
                     RuButton('order status circle demo',
                         onPressed: () =>
                             Get.to(() => const OrderStatusCircleDemo())),
+                    RuButton('Drawer demo',
+                        onPressed: () => Get.to(() => const DrawerDemo())),
                   ],
                 ),
                 const SizedBox(height: 32),
@@ -47,8 +50,8 @@ class ComponentsDemo extends StatelessWidget {
                 const Divider(),
                 Wrap(
                   direction: Axis.horizontal,
-                  spacing: 32,
-                  runSpacing: 32,
+                  spacing: 23,
+                  runSpacing: 24,
                   children: [
                     RuButton('sliver demo',
                         onPressed: () => Get.to(() => const SliverDemoPage())),
