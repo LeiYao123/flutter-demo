@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:tablet/components/Drawer/index.demo.dart';
 import 'package:tablet/components/button/index.dart';
 import 'package:tablet/components/button/button.demo.dart';
+import 'package:tablet/components/input/index.demo.dart';
 import 'package:tablet/components/order-status/index.demo.dart';
 import 'package:tablet/components/text/index.dart';
 import 'color.demo.dart';
@@ -43,6 +44,8 @@ class ComponentsDemo extends StatelessWidget {
                             Get.to(() => const OrderStatusCircleDemo())),
                     RuButton('Drawer demo',
                         onPressed: () => Get.to(() => const DrawerDemo())),
+                    RuButton('input demo',
+                        onPressed: () => Get.to(() => const InputDemo())),
                   ],
                 ),
                 const SizedBox(height: 32),
