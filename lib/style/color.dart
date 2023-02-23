@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class RuColor {
   // 跟随系统模式变化
   static Color get textHeavy =>
-      Get.isDarkMode ? const Color(0XFFE9E9E9) : const Color(0XFF121314);
+      Get.isDarkMode ? const Color(0XFFE9E9E9) : const Color(0XFFE9E9E9);
   static Color get textMedium =>
       Get.isDarkMode ? const Color(0XFFA9A9A9) : const Color(0XFF5D6872);
   static Color get textLite =>

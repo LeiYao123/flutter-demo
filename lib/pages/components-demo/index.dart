@@ -5,6 +5,7 @@ import 'package:tablet/components/button/index.dart';
 import 'package:tablet/components/button/button.demo.dart';
 import 'package:tablet/components/input/index.demo.dart';
 import 'package:tablet/components/layout/index.demo.dart';
+import 'package:tablet/components/order-card/index.demo.dart';
 import 'package:tablet/components/order-status/index.demo.dart';
 import 'package:tablet/components/text/index.dart';
 import 'color.demo.dart';
@@ -31,24 +32,42 @@ class ComponentsDemo extends StatelessWidget {
                 const Divider(),
                 Wrap(
                   direction: Axis.horizontal,
-                  spacing: 24,
+                  spacing: 32,
                   runSpacing: 24,
                   children: [
-                    RuButton('color demo',
-                        onPressed: () => Get.to(() => ColorDemoPage())),
-                    RuButton('button demo',
-                        onPressed: () => Get.to(() => const ButtonDemo())),
-                    RuButton('icon demo',
-                        onPressed: () => Get.to(() => const IconDemo())),
-                    RuButton('order status circle demo',
-                        onPressed: () =>
-                            Get.to(() => const OrderStatusCircleDemo())),
-                    RuButton('Drawer demo',
-                        onPressed: () => Get.to(() => const DrawerDemo())),
-                    RuButton('input demo',
-                        onPressed: () => Get.to(() => const InputDemo())),
-                    RuButton('navbar demo',
-                        onPressed: () => Get.to(() => const LayoutDemo())),
+                    RuButton(
+                      'color demo',
+                      onPressed: () => Get.to(() => ColorDemoPage()),
+                    ),
+                    RuButton(
+                      'button demo',
+                      onPressed: () => Get.to(() => const ButtonDemo()),
+                    ),
+                    RuButton(
+                      'icon demo',
+                      onPressed: () => Get.to(() => const IconDemo()),
+                    ),
+                    RuButton(
+                      'order status circle demo',
+                      onPressed: () =>
+                          Get.to(() => const OrderStatusCircleDemo()),
+                    ),
+                    RuButton(
+                      'Drawer demo',
+                      onPressed: () => Get.to(() => const DrawerDemo()),
+                    ),
+                    RuButton(
+                      'input demo',
+                      onPressed: () => Get.to(() => const InputDemo()),
+                    ),
+                    RuButton(
+                      'navbar demo',
+                      onPressed: () => Get.to(() => const LayoutDemo()),
+                    ),
+                    RuButton(
+                      'order card demo',
+                      onPressed: () => Get.to(() => const OrderCardDemo()),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 32),
