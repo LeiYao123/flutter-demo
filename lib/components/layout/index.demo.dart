@@ -15,7 +15,8 @@ class _LayoutDemoState extends State<LayoutDemo> {
 
   // navs icon
   static List<NavItemModel> navCfg = [
-    NavItemModel(IconPath.calendar, const Text('one'), '1'),
+    NavItemModel(IconPath.calendar,
+        Container(color: Colors.blue, child: const Text('one')), '1'),
     NavItemModel(IconPath.cateringbag, const Text('two'), '2'),
     NavItemModel(IconPath.clipboard, const Text('three'), '3'),
     NavItemModel(IconPath.receipt, const Text('four'), ''),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tablet/components/Drawer/index.demo.dart';
+import 'package:tablet/components/drawer/index.demo.dart';
 import 'package:tablet/components/button/index.dart';
 import 'package:tablet/components/button/button.demo.dart';
 import 'package:tablet/components/input/index.demo.dart';
