@@ -14,6 +14,13 @@ class IconPath {
   static const Ready = 'assets/icons/OrderStatus/Ready.svg';
   static const Rejected = 'assets/icons/OrderStatus/Rejected.svg';
   static const Scheduled = 'assets/icons/OrderStatus/Scheduled.svg';
+
+  static const calendar = 'assets/icons/t/calendar.svg';
+  static const cateringbag = 'assets/icons/t/cateringbag.svg';
+  static const clipboard = 'assets/icons/t/clipboard.svg';
+  static const menu = 'assets/icons/t/menu.svg';
+  static const receipt = 'assets/icons/t/receipt.svg';
+  static const utensils = 'assets/icons/t/utensils.svg';
 }
 
 class RuIcons {
@@ -21,7 +28,7 @@ class RuIcons {
     String svgName, {
     bool noColor = false,
     double size = 24,
-    Color? color = const Color(0xFF181818),
+    Color? color,
   }) {
     return SvgPicture.asset(
       svgName,
