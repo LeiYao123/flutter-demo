@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tablet/components/order-status/index.dart';
+import 'package:tablet/components/order_status/index.dart';
 
 class OrderStatusCircleDemo extends StatelessWidget {
   const OrderStatusCircleDemo({super.key});

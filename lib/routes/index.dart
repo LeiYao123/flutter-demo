@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:tablet/pages/Orders/index.dart';
-import 'package:tablet/pages/choose-restaurant/index.dart';
-import 'package:tablet/pages/landing-page/index.dart';
+import 'package:tablet/pages/orders/index.dart';
+import 'package:tablet/pages/choose_restaurant/index.dart';
+import 'package:tablet/pages/landing_page/index.dart';
 import 'package:tablet/pages/login/index.dart';
-import 'package:tablet/pages/components-demo/index.dart';
+import 'package:tablet/pages/components_demo/index.dart';
 
 class AppRoutes {
   static String landing = '/';
