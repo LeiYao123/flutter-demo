@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:tablet/components/text/index.dart';
+import 'package:tablet/components/order_status_tab/index.dart';
 
 import 'index.dart';
 
@@ -13,6 +13,7 @@ class OrderCardDemo extends StatefulWidget {
 
 class _OrderCardDemoState extends State<OrderCardDemo> {
   int _activeIndex = 0;
+  int _tabIndex = 0;
 
   List<Widget> _buildOrderList() {
     List arr = List.generate(8, (index) => index);
@@ -39,15 +40,24 @@ class _OrderCardDemoState extends State<OrderCardDemo> {
           child: Column(
             children: [
               Container(
-                height: 80,
-                width: double.infinity,
-                alignment: Alignment.center,
                 decoration: const BoxDecoration(
                   border: Border(
+                    top: BorderSide(color: Color(0xff404040)),
                     bottom: BorderSide(color: Color(0xff404040)),
                   ),
                 ),
-                child: const RuText('i am header', color: Colors.white),
+                child: OrderStatusTab(
+                  activeIndex: _tabIndex,
+                  tabs: [
+                    TabItem('NEW', 1, 8),
+                    TabItem('READY', 2, 5),
+                    TabItem('COMPLETE', 3, 9),
+                  ],
+                  onChange: (index) => setState(() => _tabIndex = index),
+                  onSearch: (e) {
+                    print('搜索关键词 $e');
+                  },
+                ),
               ),
               Expanded(
                 child: SingleChildScrollView(

@@ -7,6 +7,7 @@ import 'package:tablet/components/input/index.demo.dart';
 import 'package:tablet/components/layout/index.demo.dart';
 import 'package:tablet/components/order_card/index.demo.dart';
 import 'package:tablet/components/order_status/index.demo.dart';
+import 'package:tablet/components/order_status_tab/index.demo.dart';
 import 'package:tablet/components/text/index.dart';
 import 'color.demo.dart';
 import 'icon.demo.dart';
@@ -67,6 +68,10 @@ class ComponentsDemo extends StatelessWidget {
                     RuButton(
                       'order card demo',
                       onPressed: () => Get.to(() => const OrderCardDemo()),
+                    ),
+                    RuButton(
+                      'order status tab demo',
+                      onPressed: () => Get.to(() => const OrderStatusTabDemo()),
                     ),
                   ],
                 ),

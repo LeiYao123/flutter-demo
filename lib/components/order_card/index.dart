@@ -41,8 +41,10 @@ class OrderCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (tagDesc != null) OrderTag(text: tagDesc!),
-                if (tagDesc != null) const SizedBox(height: 4),
+                if (tagDesc != null) ...[
+                  OrderTag(text: tagDesc!),
+                  const SizedBox(height: 4)
+                ],
                 RuText(
                   title,
                   size: 24,
