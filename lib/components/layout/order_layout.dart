@@ -47,7 +47,7 @@ class OrderLayout extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 24, bottom: 32),
-                child: RuIcons.svg(
+                child: RuIcons(
                   IconPath.menu,
                   size: 32,
                   color: RuColor.whitePure,
@@ -81,7 +81,7 @@ class NavItem extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        RuIcons.svg(icon, color: iconColor),
+        RuIcons(icon, color: iconColor),
         const SizedBox(height: 4),
         RuText(label, color: RuColor.yellow, weight: FontWeight.w700),
       ],

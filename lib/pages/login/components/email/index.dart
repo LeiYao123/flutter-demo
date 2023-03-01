@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:tablet/components/button/index.dart';
 import 'package:tablet/components/checkbox/index.dart';
+import 'package:tablet/components/text/index.dart';
 import 'package:tablet/components/toast/index.dart';
 import 'package:tablet/apis/user.dart';
 import 'package:tablet/utils/global.dart';
@@ -89,8 +90,8 @@ class _EmailFormState extends State<EmailForm> {
           },
         ),
         RuCheckbox(
-          value: _isRemember,
-          label: 'Remember Me',
+          checked: _isRemember,
+          left: const RuText('Remember Me'),
           onChanged: (value) {
             setState(() {
               _isRemember = value!;

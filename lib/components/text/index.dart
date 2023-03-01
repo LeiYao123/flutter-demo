@@ -17,7 +17,7 @@ class RuText extends StatelessWidget {
     this.isBold = false,
     this.height = 1,
     this.underline = false,
-    this.weight,
+    this.weight = FontWeight.w400,
   });
 
   @override

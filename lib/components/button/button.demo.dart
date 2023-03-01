@@ -51,11 +51,11 @@ class ButtonDemo extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              RuIcons.svg(IconPath.LinedStar, size: 16),
+              RuIcons(IconPath.LinedStar, size: 16),
               const SizedBox(width: 8),
               const Text('自定义child'),
               const SizedBox(width: 8),
-              RuIcons.svg(IconPath.SolidStar, size: 16),
+              RuIcons(IconPath.SolidStar, size: 16),
             ],
           ),
         ),
@@ -95,11 +95,11 @@ class ButtonDemo extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              RuIcons.svg(IconPath.LinedStar, size: 20),
+              RuIcons(IconPath.LinedStar, size: 20),
               const SizedBox(width: 8),
               const Text('自定义child'),
               const SizedBox(width: 8),
-              RuIcons.svg(IconPath.SolidStar, size: 20),
+              RuIcons(IconPath.SolidStar, size: 20),
             ],
           ),
         ),
@@ -152,11 +152,11 @@ class ButtonDemo extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              RuIcons.svg(IconPath.LinedStar, size: 24),
+              RuIcons(IconPath.LinedStar, size: 24),
               const SizedBox(width: 8),
               const Text('自定义child'),
               const SizedBox(width: 8),
-              RuIcons.svg(IconPath.SolidStar, size: 24),
+              RuIcons(IconPath.SolidStar, size: 24),
             ],
           ),
         ),
@@ -232,13 +232,13 @@ class ButtonDemo extends StatelessWidget {
     return Wrap(
       children: [
         RuIconButton(
-            icon: RuIcons.svg(IconPath.LinedStar, size: 24),
+            icon: RuIcons(IconPath.LinedStar, size: 24),
             bgColor: RuColor.green,
             margin: const EdgeInsets.all(16.0),
             onPressed: () {}),
         RuIconButton(
             isOutlined: true,
-            icon: RuIcons.svg(IconPath.SolidStar, size: 24),
+            icon: RuIcons(IconPath.SolidStar, size: 24),
             bgColor: RuColor.green,
             margin: const EdgeInsets.all(16.0),
             onPressed: () {}),

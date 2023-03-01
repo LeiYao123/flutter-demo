@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tablet/components/checkbox/index.demo.dart';
 import 'package:tablet/components/drawer/index.demo.dart';
 import 'package:tablet/components/button/index.dart';
 import 'package:tablet/components/button/button.demo.dart';
@@ -72,6 +73,10 @@ class ComponentsDemo extends StatelessWidget {
                     RuButton(
                       'order status tab demo',
                       onPressed: () => Get.to(() => const OrderStatusTabDemo()),
+                    ),
+                    RuButton(
+                      'checkbox',
+                      onPressed: () => Get.to(() => const CheckboxDemo()),
                     ),
                   ],
                 ),

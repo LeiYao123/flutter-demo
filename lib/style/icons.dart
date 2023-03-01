@@ -21,20 +21,20 @@ class IconPath {
   static const menu = 'assets/icons/t/menu.svg';
   static const receipt = 'assets/icons/t/receipt.svg';
   static const utensils = 'assets/icons/t/utensils.svg';
+  static const checked_false = 'assets/icons/t/CheckedFalse.svg';
+  static const checked_true = 'assets/icons/t/CheckedTrue.svg';
 }
 
-class RuIcons {
-  static SvgPicture svg(
-    String svgName, {
-    bool noColor = false,
-    double size = 24,
-    Color? color,
-  }) {
-    return SvgPicture.asset(
-      svgName,
-      color: noColor ? null : color,
-      width: size,
-      height: size,
-    );
-  }
+SvgPicture RuIcons(
+  String svgName, {
+  double size = 24,
+  Color? color,
+}) {
+  return SvgPicture.asset(
+    svgName,
+    width: size,
+    height: size,
+    colorFilter:
+        color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
+  );
 }

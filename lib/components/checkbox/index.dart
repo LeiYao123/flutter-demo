@@ -1,44 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:tablet/components/text/index.dart';
+import 'package:tablet/style/icons.dart';
 
 class RuCheckbox extends StatelessWidget {
+  final bool? isSingle;
+  final bool checked;
+  final Widget? left;
+  final Widget? right;
+  final void Function(bool) onChanged;
   const RuCheckbox({
     super.key,
-    required this.label,
-    this.padding,
-    required this.value,
+    this.isSingle = false,
+    required this.checked,
     required this.onChanged,
+    this.left,
+    this.right,
   });
 
-  final String label;
-  final EdgeInsets? padding;
-  final dynamic value;
-  final ValueChanged onChanged;
+  // 单独的 checkbox
+  Widget _buildSingleCheckbox() {
+    final path = checked ? IconPath.checked_true : IconPath.checked_false;
+    return left == null
+        ? RuIcons(path)
+        : Row(
+            children: [RuIcons(path), const SizedBox(width: 8), left!],
+          );
+  }
+
+  // order time selector
+  Widget _buildCheckboxSelector() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      margin: EdgeInsets.all(checked ? 0 : 1),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+        border: Border.all(
+          color: checked ? const Color(0xff121314) : const Color(0xffe1e5e9),
+          width: checked ? 2 : 1,
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _buildSingleCheckbox(),
+          if (right != null) right!,
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        onChanged(!value);
-      },
-      child: Padding(
-        padding: padding ?? const EdgeInsets.all(0),
-        child: Row(
-          children: <Widget>[
-            SizedBox(
-              width: 20,
-              child: Checkbox(
-                value: value,
-                onChanged: (newValue) {
-                  onChanged(newValue!);
-                },
-              ),
-            ),
-            const SizedBox(width: 12),
-            RuText(label),
-          ],
-        ),
-      ),
+      onTap: () => onChanged(!checked),
+      borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+      child: isSingle! ? _buildSingleCheckbox() : _buildCheckboxSelector(),
     );
   }
 }
