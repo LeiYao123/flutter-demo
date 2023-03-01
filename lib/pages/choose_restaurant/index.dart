@@ -53,7 +53,7 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
         _brandList = list;
       });
     } on DioError catch (e) {
-      Toast.errorBar(e.message);
+      Toast.errorBar(e.message!);
     } finally {
       if (isRefresh) {
         _pullRefresher.refreshCompleted();
@@ -80,7 +80,7 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
         _locationList = list;
       });
     } on DioError catch (e) {
-      Toast.errorBar(e.message);
+      Toast.errorBar(e.message!);
     } finally {
       if (isRefresh) {
         _pullRefresher.refreshCompleted();

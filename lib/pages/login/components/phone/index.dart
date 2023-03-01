@@ -29,7 +29,7 @@ class _PhoneFormState extends State<PhoneForm> {
         _currMode = 'code';
       });
     } on DioError catch (e) {
-      if (e.response != null) Toast.errorBar(e.message);
+      if (e.response != null) Toast.errorBar(e.message!);
     }
     setState(() => _isLoading = false);
   }
@@ -44,7 +44,7 @@ class _PhoneFormState extends State<PhoneForm> {
         _currMode = 'code';
       });
     } on DioError catch (e) {
-      if (e.response != null) Toast.errorBar(e.message);
+      if (e.response != null) Toast.errorBar(e.message!);
     }
     setState(() => _isLoading = false);
   }

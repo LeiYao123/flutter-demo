@@ -39,7 +39,7 @@ class _LandingPageState extends State<LandingPage> {
             // 跳到首页
           } on DioError catch (e) {
             setState(() {
-              _error = e.message;
+              _error = e.message!;
             });
           }
         }

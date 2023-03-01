@@ -20,7 +20,7 @@ class Http {
       baseUrl: BASE_URL,
       // https://stackoverflow.com/questions/73106834/flutter-dio-interceptor-error-bad-state-future-already-completed
       // connectTimeout: 20000,
-      receiveTimeout: 20000,
+      receiveTimeout: const Duration(seconds: 20),
     );
     _dio = Dio(options);
     _addInterceptors(_dio);
@@ -55,7 +55,7 @@ class Http {
           handler.reject(
             DioError(
               error: Exception(response.data['message']),
-              type: DioErrorType.response,
+              type: DioErrorType.badResponse,
               requestOptions: response.requestOptions,
             ),
           );
@@ -65,7 +65,7 @@ class Http {
             DioError(
               error: Exception(
                   'Please make sure you are connected to the internet.'),
-              type: DioErrorType.response,
+              type: DioErrorType.badResponse,
               requestOptions: response.requestOptions,
             ),
           );
