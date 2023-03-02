@@ -23,7 +23,7 @@ class _DrawerDemoState extends State<DrawerDemo> {
       ),
     );
     return Scaffold(
-      key: RuDrawer.drawerScaffoldKey,
+      key: RDrawer.drawerScaffoldKey,
 
       appBar: AppBar(
         title: const Text('测试抽屉组件'),
@@ -38,20 +38,20 @@ class _DrawerDemoState extends State<DrawerDemo> {
         padding: const EdgeInsets.all(32),
         child: Row(
           children: [
-            RuButton(
+            RButton(
               'open end drawer1',
               onPressed: () {
-                RuDrawer.openEndDrawer();
+                RDrawer.openEndDrawer();
                 setState(() {
                   _mode = 1;
                 });
               },
             ),
-            RuButton(
+            RButton(
               'open end drawer2',
               margin: const EdgeInsets.symmetric(horizontal: 24),
               onPressed: () {
-                RuDrawer.openEndDrawer();
+                RDrawer.openEndDrawer();
                 setState(() {
                   _mode = 2;
                 });
@@ -63,20 +63,20 @@ class _DrawerDemoState extends State<DrawerDemo> {
     );
   }
 
-  RuDrawer _getDrawer1() {
-    return RuDrawer(
-      title: const RuText('Draw - 1 - Title', size: 20, isBold: true),
+  RDrawer _getDrawer1() {
+    return RDrawer(
+      title: const RText('Draw - 1 - Title', size: 20, isBold: true),
       footer: Row(children: [
-        RuButton(
+        RButton(
           'Back',
-          bgColor: RuColor.common_4,
-          fgColor: RuColor.blackPure,
+          bgColor: RColor.light_common_4,
+          fgColor: RColor.black_pure,
           width: 120,
-          onPressed: () => RuDrawer.closeEndDrawer(),
+          onPressed: () => RDrawer.closeEndDrawer(),
         ),
         const SizedBox(width: 16),
         Expanded(
-          child: RuButton(
+          child: RButton(
             'button',
             onPressed: () {},
           ),
@@ -86,10 +86,10 @@ class _DrawerDemoState extends State<DrawerDemo> {
         color: Colors.blueGrey,
         child: Column(
           children: [
-            RuButton(
+            RButton(
               'close drawer',
               onPressed: () {
-                RuDrawer.closeEndDrawer();
+                RDrawer.closeEndDrawer();
               },
             ),
             Container(
@@ -113,17 +113,17 @@ class _DrawerDemoState extends State<DrawerDemo> {
     );
   }
 
-  RuDrawer _getDrawer2() {
-    return RuDrawer(
-      title: const RuText('Draw - 2 - Title', size: 20, isBold: true),
+  RDrawer _getDrawer2() {
+    return RDrawer(
+      title: const RText('Draw - 2 - Title', size: 20, isBold: true),
       child: Container(
         color: Colors.blueGrey,
         child: Column(
           children: [
-            RuButton(
+            RButton(
               'close drawer 2',
               onPressed: () {
-                RuDrawer.closeEndDrawer();
+                RDrawer.closeEndDrawer();
               },
             )
           ],

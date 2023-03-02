@@ -22,18 +22,18 @@ class _CheckboxDemoState extends State<CheckboxDemo> {
         padding: const EdgeInsets.all(32.0),
         child: Column(
           children: [
-            RuCheckbox(
+            RCheckbox(
               checked: _isRemember,
-              left: const RuText('6:05 PM', weight: FontWeight.w500),
-              right: const RuText('5 minutes'),
+              left: const RText('6:05 PM', weight: FontWeight.w500),
+              right: const RText('5 minutes'),
               onChanged: (value) => setState(() => _isRemember = value),
             ),
             const SizedBox(height: 30),
-            RuCheckbox(
+            RCheckbox(
               checked: _isRemember2,
               left: Row(
                 children: [
-                  const RuText('7:12 PM', weight: FontWeight.w500),
+                  const RText('7:12 PM', weight: FontWeight.w500),
                   const SizedBox(width: 8),
                   Ink(
                     child: GestureDetector(
@@ -41,7 +41,7 @@ class _CheckboxDemoState extends State<CheckboxDemo> {
                       onTap: () {
                         print('change');
                       },
-                      child: const RuText(
+                      child: const RText(
                         'CHANGE',
                         weight: FontWeight.w500,
                         color: Colors.blue,
@@ -50,19 +50,19 @@ class _CheckboxDemoState extends State<CheckboxDemo> {
                   ),
                 ],
               ),
-              right: const RuText('5 minutes'),
+              right: const RText('5 minutes'),
               onChanged: (value) => setState(() => _isRemember2 = value),
             ),
             const SizedBox(height: 30),
-            RuCheckbox(
+            RCheckbox(
               checked: _isRemember,
-              left: const RuText('Option 1', weight: FontWeight.w500),
+              left: const RText('Option 1', weight: FontWeight.w500),
               onChanged: (value) => setState(() => _isRemember = value),
             ),
             const SizedBox(height: 30),
-            RuCheckbox(
+            RCheckbox(
               isSingle: true,
-              left: const RuText('Remember Me'),
+              left: const RText('Remember Me'),
               checked: _isRemember,
               onChanged: (value) => setState(() => _isRemember = value),
             ),

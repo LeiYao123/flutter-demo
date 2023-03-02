@@ -28,10 +28,10 @@ class _InputDemoState extends State<InputDemo> {
             key: _formKey,
             child: Column(
               children: [
-                RuInput(
+                RInput(
                   labelText: 'Email',
-                  prefixIcon: RuInput.dollerIcon,
-                  suffixIcon: RuInput.percentIcon,
+                  prefixIcon: RInput.dollerIcon,
+                  suffixIcon: RInput.percentIcon,
                   maxLength: 20,
                   autofocus: true,
                   // readOnly: true,
@@ -42,9 +42,9 @@ class _InputDemoState extends State<InputDemo> {
                   },
                 ),
                 const SizedBox(height: 16),
-                const RuInput(labelText: 'Disabled Input', disabled: true),
+                const RInput(labelText: 'Disabled Input', disabled: true),
                 const SizedBox(height: 16),
-                RuInput(
+                RInput(
                   labelText: 'Error Input',
                   errorText: _showErr ? '错误提示' : null,
                   hintText: 'placehoder 提示',
@@ -63,7 +63,7 @@ class _InputDemoState extends State<InputDemo> {
                   },
                 ),
                 const SizedBox(height: 16),
-                RuInput(
+                RInput(
                   labelText: 'Password',
                   obscureText: true,
                   onSaved: (v) {
@@ -71,7 +71,7 @@ class _InputDemoState extends State<InputDemo> {
                   },
                 ),
                 const SizedBox(height: 16),
-                RuButton(
+                RButton(
                   'Submit',
                   isBlock: true,
                   onPressed: () {

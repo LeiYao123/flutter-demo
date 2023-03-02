@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class RuDrawer extends StatelessWidget {
+class RDrawer extends StatelessWidget {
   final Widget child;
   final double? width;
   final Widget? title;
   final Widget? footer;
-  const RuDrawer({
+  const RDrawer({
     super.key,
     required this.child,
     this.width = 536,

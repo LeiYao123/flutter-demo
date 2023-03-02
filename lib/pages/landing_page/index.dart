@@ -63,7 +63,7 @@ class _LandingPageState extends State<LandingPage> {
                 children: [
                   Text("Error: $_error"),
                   const SizedBox(height: 20),
-                  RuButton('Try again', onPressed: () {
+                  RButton('Try again', onPressed: () {
                     _getLoginStatus();
                     setState(() {
                       _error = '';

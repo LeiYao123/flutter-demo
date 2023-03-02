@@ -15,7 +15,7 @@ const Map<BtnSizeEnum, double> heightMap = {
   BtnSizeEnum.lg: 60,
 };
 
-class RuButton extends StatelessWidget {
+class RButton extends StatelessWidget {
   final String text;
 
   /// 自定义 child 否则使用 text
@@ -30,13 +30,13 @@ class RuButton extends StatelessWidget {
 
   /// 外边框，是否独占一行，禁用，loading
   final bool isOutlined, isBlock, disabled, loading;
-  const RuButton(
+  const RButton(
     this.text, {
     super.key,
     this.child,
     this.onPressed,
-    this.bgColor = RuColor.yellow,
-    this.fgColor = RuColor.blackPure,
+    this.bgColor = RColor.yellow,
+    this.fgColor = RColor.black_pure,
     this.size = BtnSizeEnum.md,
     this.margin,
     this.width,
@@ -81,8 +81,8 @@ class RuButton extends StatelessWidget {
 
     const padding = EdgeInsets.symmetric(horizontal: 16);
 
-    final backgroundColor = disabled ? RuColor.common_16 : bgColor;
-    final foregroundColor = disabled ? RuColor.common_32 : fgColor;
+    final backgroundColor = disabled ? RColor.light_common_16 : bgColor;
+    final foregroundColor = disabled ? RColor.light_common_32 : fgColor;
 
     return ButtonStyle(
       elevation: MaterialStateProperty.all(0),

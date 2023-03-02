@@ -89,9 +89,9 @@ class _EmailFormState extends State<EmailForm> {
             });
           },
         ),
-        RuCheckbox(
+        RCheckbox(
           checked: _isRemember,
-          left: const RuText('Remember Me'),
+          left: const RText('Remember Me'),
           onChanged: (value) {
             setState(() {
               _isRemember = value!;
@@ -100,7 +100,7 @@ class _EmailFormState extends State<EmailForm> {
         ),
         Container(
           margin: const EdgeInsets.only(top: 16, bottom: 8),
-          child: RuButton(
+          child: RButton(
             'Sign in',
             loading: _loading,
             isBlock: true,

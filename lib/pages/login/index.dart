@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: RuColor.bgAbsolute,
+      backgroundColor: RColor.light_bg_absolute,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            RuRadio(
+                            RRadio(
                               label: 'Your Cellphone',
                               value: 'phone',
                               groupValue: _currMode,
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                                 });
                               },
                             ),
-                            RuRadio(
+                            RRadio(
                               label: 'Your Email',
                               value: 'email',
                               groupValue: _currMode,
@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                             ? PhoneForm(onSuccess: handleSuccess)
                             : EmailForm(onSuccess: handleSuccess),
                         const SizedBox(height: 28),
-                        const RuText('Login issue? Call (855)979-8860'),
+                        const RText('Login issue? Call (855)979-8860'),
                       ],
                     ),
                   ),

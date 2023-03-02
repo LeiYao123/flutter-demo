@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:tablet/components/text/index.dart';
+import 'package:tablet/style/color.dart';
 
 class OrderStatusTab extends StatefulWidget {
   final int activeIndex;
@@ -15,8 +16,6 @@ class OrderStatusTab extends StatefulWidget {
     required this.onSearch,
   });
 
-  static final color = const Color(0xff888888);
-
   @override
   State<OrderStatusTab> createState() => _OrderStatusTabState();
 }
@@ -25,14 +24,14 @@ class _OrderStatusTabState extends State<OrderStatusTab> {
   bool _isSearchMode = false;
 
   Widget _buildLine() {
-    return Container(width: 1, color: const Color(0xff404040));
+    return Container(width: 1, color: RColor.dark_common_8);
   }
 
   Widget _buildTabItem(int index, TabItem el) {
     final bgColor =
-        widget.activeIndex == index ? const Color(0xff282828) : null;
+        widget.activeIndex == index ? RColor.dark_bg_secondary : null;
     final textColor =
-        widget.activeIndex == index ? Colors.white : OrderStatusTab.color;
+        widget.activeIndex == index ? Colors.white : RColor.dark_text_lite;
     return InkWell(
       onTap: () => widget.onChange(index),
       child: Container(
@@ -40,8 +39,8 @@ class _OrderStatusTabState extends State<OrderStatusTab> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RuText(el.title, color: textColor, weight: FontWeight.w700),
-            RuText(el.orderNum, color: textColor, weight: FontWeight.w700),
+            RText(el.title, color: textColor, weight: FontWeight.w700),
+            RText(el.orderNum, color: textColor, weight: FontWeight.w700),
           ],
         ),
       ),
@@ -68,10 +67,10 @@ class _OrderStatusTabState extends State<OrderStatusTab> {
           style: const TextStyle(color: Colors.white),
           decoration: const InputDecoration(
             hintText: 'Type keyword to search',
-            hintStyle: TextStyle(color: Color(0xff888888)),
+            hintStyle: TextStyle(color: RColor.dark_text_lite),
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(
-                color: Color(0xff404040),
+                color: RColor.dark_common_8,
               ),
             ),
           ),
@@ -84,7 +83,7 @@ class _OrderStatusTabState extends State<OrderStatusTab> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xff161616),
+      color: RColor.dark_bg_primary,
       height: 80,
       child: Row(
         children: [
@@ -97,7 +96,7 @@ class _OrderStatusTabState extends State<OrderStatusTab> {
               child: Icon(
                 _isSearchMode ? Icons.close : Icons.search,
                 size: 24,
-                color: OrderStatusTab.color,
+                color: RColor.dark_text_lite,
               ),
             ),
           ),

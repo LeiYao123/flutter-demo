@@ -165,7 +165,7 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
             decoration: BoxDecoration(
               border: Border.all(
                 width: checked ? 2 : 1,
-                color: checked ? RuColor.yellow : RuColor.bgAbsolute,
+                color: checked ? RColor.yellow : RColor.light_bg_absolute,
               ),
               borderRadius: const BorderRadius.all(Radius.circular(4)),
             ),
@@ -173,13 +173,13 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _step == 1
-                    ? RuText(e['name'], size: 20, isBold: true)
+                    ? RText(e['name'], size: 20, isBold: true)
                     : Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          RuText(e['name'], size: 20, isBold: true),
+                          RText(e['name'], size: 20, isBold: true),
                           const SizedBox(height: 8),
-                          RuText(e['address'], size: 12, color: Colors.black26),
+                          RText(e['address'], size: 12, color: Colors.black26),
                         ],
                       ),
                 Container(
@@ -194,7 +194,7 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
                   alignment: Alignment.center,
                   child: checked
                       ? const CircularProgressIndicator()
-                      : RuText(e['desc'], size: 14),
+                      : RText(e['desc'], size: 14),
                 ),
               ],
             ),
@@ -208,7 +208,7 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: RuText(
+        title: RText(
           'Select Your ${_step == 1 ? 'Brand' : 'Store'}',
           isBold: true,
         ),
@@ -220,7 +220,7 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
             children: [
               const SizedBox(width: 16),
               const Icon(Icons.arrow_back),
-              RuText(_step == 1 ? 'LOG OUT' : 'GO BACK', isBold: true),
+              RText(_step == 1 ? 'LOG OUT' : 'GO BACK', isBold: true),
             ],
           ),
         ),

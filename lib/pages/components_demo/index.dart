@@ -30,67 +30,67 @@ class ComponentsDemo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const RuText('基础组件'),
+                const RText('基础组件'),
                 const Divider(),
                 Wrap(
                   direction: Axis.horizontal,
                   spacing: 32,
                   runSpacing: 24,
                   children: [
-                    RuButton(
+                    RButton(
                       'color demo',
                       onPressed: () => Get.to(() => ColorDemoPage()),
                     ),
-                    RuButton(
+                    RButton(
                       'button demo',
                       onPressed: () => Get.to(() => const ButtonDemo()),
                     ),
-                    RuButton(
+                    RButton(
                       'icon demo',
                       onPressed: () => Get.to(() => const IconDemo()),
                     ),
-                    RuButton(
+                    RButton(
                       'order status circle demo',
                       onPressed: () =>
                           Get.to(() => const OrderStatusCircleDemo()),
                     ),
-                    RuButton(
+                    RButton(
                       'Drawer demo',
                       onPressed: () => Get.to(() => const DrawerDemo()),
                     ),
-                    RuButton(
+                    RButton(
                       'input demo',
                       onPressed: () => Get.to(() => const InputDemo()),
                     ),
-                    RuButton(
+                    RButton(
                       'navbar demo',
                       onPressed: () => Get.to(() => const LayoutDemo()),
                     ),
-                    RuButton(
+                    RButton(
                       'order card demo',
                       onPressed: () => Get.to(() => const OrderCardDemo()),
                     ),
-                    RuButton(
+                    RButton(
                       'order status tab demo',
                       onPressed: () => Get.to(() => const OrderStatusTabDemo()),
                     ),
-                    RuButton(
+                    RButton(
                       'checkbox',
                       onPressed: () => Get.to(() => const CheckboxDemo()),
                     ),
                   ],
                 ),
                 const SizedBox(height: 32),
-                const RuText('一些示例 demo'),
+                const RText('一些示例 demo'),
                 const Divider(),
                 Wrap(
                   direction: Axis.horizontal,
                   spacing: 23,
                   runSpacing: 24,
                   children: [
-                    RuButton('sliver demo',
+                    RButton('sliver demo',
                         onPressed: () => Get.to(() => const SliverDemoPage())),
-                    RuButton('effect demo',
+                    RButton('effect demo',
                         onPressed: () => Get.to(() => const EffectDemoPage())),
                   ],
                 ),

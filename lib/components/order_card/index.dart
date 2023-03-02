@@ -29,9 +29,9 @@ class OrderCard extends StatelessWidget {
         height: 120,
         padding: const EdgeInsets.symmetric(horizontal: 24),
         decoration: BoxDecoration(
-          color: isActive ? const Color(0xff282828) : const Color(0xff161616),
+          color: isActive ? RColor.dark_bg_secondary : RColor.dark_bg_primary,
           border: const Border(
-            bottom: BorderSide(color: Color(0xff404040)),
+            bottom: BorderSide(color: RColor.dark_common_8),
           ),
         ),
         child: Row(
@@ -45,17 +45,17 @@ class OrderCard extends StatelessWidget {
                   OrderTag(text: tagDesc!),
                   const SizedBox(height: 4)
                 ],
-                RuText(
+                RText(
                   title,
                   size: 24,
-                  color: const Color(0xffe9e9e9),
+                  color: RColor.dark_text_heavy,
                   weight: FontWeight.w700,
                 ),
                 const SizedBox(height: 4),
-                RuText(
+                RText(
                   desc,
                   size: 16,
-                  color: const Color(0xff888888),
+                  color: RColor.dark_text_lite,
                 ),
               ],
             ),
@@ -80,11 +80,11 @@ class OrderTag extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
-          color: const Color(0xff363636),
+          color: RColor.dark_bg_tertiary,
         ),
-        child: RuText(
+        child: RText(
           text,
-          color: RuColor.textHeavy,
+          color: RColor.light_text_heavy,
           size: 12,
           weight: FontWeight.w700,
         ),
@@ -100,7 +100,7 @@ class OrderTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isAsap ? const Color(0xffe9e9e9) : const Color(0xffFFBB08);
+    final color = isAsap ? RColor.dark_text_heavy : RColor.yellow;
     final desc = isAsap ? 'ASAP' : text;
     return UnconstrainedBox(
       child: Container(
@@ -110,9 +110,9 @@ class OrderTime extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: const Color(0xff404040)),
+          border: Border.all(color: RColor.dark_common_8),
         ),
-        child: RuText(desc, color: color),
+        child: RText(desc, color: color),
       ),
     );
   }

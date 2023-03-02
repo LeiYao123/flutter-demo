@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tablet/components/text/index.dart';
 
-class RuRadio extends StatelessWidget {
-  const RuRadio({
+class RRadio extends StatelessWidget {
+  const RRadio({
     super.key,
     required this.label,
     this.padding,
@@ -40,7 +40,7 @@ class RuRadio extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 12),
-            RuText(label, isBold: true),
+            RText(label, isBold: true),
           ],
         ),
       ),

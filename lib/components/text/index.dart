@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tablet/style/color.dart';
 
-class RuText extends StatelessWidget {
+class RText extends StatelessWidget {
   final dynamic text;
   final double? size;
   final bool isBold;
@@ -9,7 +9,7 @@ class RuText extends StatelessWidget {
   final Color? color;
   final double? height;
   final bool underline;
-  const RuText(
+  const RText(
     this.text, {
     super.key,
     this.size = 16,
@@ -26,7 +26,7 @@ class RuText extends StatelessWidget {
       text.toString(),
       style: TextStyle(
         fontSize: size,
-        color: color ?? RuColor.common_120,
+        color: color ?? RColor.light_common_120,
         fontWeight: isBold ? FontWeight.w700 : weight,
         height: height,
         decoration: underline ? TextDecoration.underline : null,

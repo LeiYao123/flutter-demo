@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tablet/style/color.dart';
 
 class ColorDemoPage extends StatelessWidget {
@@ -9,97 +8,109 @@ class ColorDemoPage extends StatelessWidget {
     {
       'text': 'Text / Heavy <Dark>',
       'colorDesc': 'E9E9E9',
-      'color': RuColor.textHeavy,
-      'fcolor': Colors.white,
+      'color': RColor.dark_text_heavy,
+      'fcolor': Colors.black,
     },
     {
       'text': 'Text / Medium <Dark>',
       'colorDesc': 'A9A9A9',
-      'color': RuColor.textMedium,
+      'color': RColor.dark_text_medium,
       'fcolor': Colors.white,
     },
     {
       'text': 'Text / Lite <Dark>',
       'colorDesc': '888888',
-      'color': RuColor.textLite,
+      'color': RColor.dark_text_lite,
       'fcolor': Colors.white,
     },
     {
       'text': 'Text / Reverse <Dark>',
       'colorDesc': '000000',
-      'color': RuColor.textReverse,
+      'color': RColor.dark_text_reverse,
       'fcolor': Colors.white,
     },
     {
       'text': 'BG / Absolute <Dark>',
       'colorDesc': '000000',
-      'color': RuColor.bgAbsolute,
+      'color': RColor.dark_bg_absolute,
       'fcolor': Colors.white,
     },
     {
       'text': 'BG / Primary <Dark>',
       'colorDesc': '161616',
-      'color': RuColor.bgPrimary,
+      'color': RColor.dark_bg_primary,
       'fcolor': Colors.white,
     },
     {
       'text': 'BG / Primary Elevated <Dark>',
       'colorDesc': '202020',
-      'color': RuColor.bgPrimaryElevated,
+      'color': RColor.dark_bg_primary_elevated,
       'fcolor': Colors.white,
     },
     {
       'text': 'BG / Secondary <Dark>',
       'colorDesc': '282828',
-      'color': RuColor.bgSecondary,
+      'color': RColor.dark_bg_secondary,
       'fcolor': Colors.white,
     },
     {
       'text': 'BG / Tertiary <Dark>',
       'colorDesc': '363636',
-      'color': RuColor.bgTertiary,
+      'color': RColor.dark_bg_tertiary,
       'fcolor': Colors.white,
     },
     {
       'text': 'BG / Reverse <Dark>',
       'colorDesc': 'FFFFFF',
-      'color': RuColor.bgReverse,
-      'fcolor': Colors.white,
+      'color': RColor.dark_bg_reverse,
+      'fcolor': Colors.black,
     },
     {
       'text': 'Common / 120 Absolute <Dark>',
       'colorDesc': 'FFFFFF',
-      'color': RuColor.common_120,
-      'fcolor': Colors.white,
+      'color': RColor.dark_common_120,
+      'fcolor': Colors.black,
     },
     {
       'text': 'Common / 100 Primary <Dark>',
       'colorDesc': 'E9E9E9',
-      'color': RuColor.common_100,
-      'fcolor': Colors.white,
+      'color': RColor.dark_common_100,
+      'fcolor': Colors.black,
     },
     {
       'text': 'Common / 64 Secondary <Dark>',
       'colorDesc': 'A9A9A9',
-      'color': RuColor.common_64,
+      'color': RColor.dark_common_64,
       'fcolor': Colors.white,
     },
     {
       'text': 'Common / 32 Label <Dark>',
       'colorDesc': '888888',
-      'color': RuColor.common_32,
+      'color': RColor.dark_common_32,
       'fcolor': Colors.white,
     },
     {
       'text': 'Common / 16 Disable <Dark>',
       'colorDesc': '555555',
-      'color': RuColor.common_16,
+      'color': RColor.dark_common_16,
       'fcolor': Colors.white,
     },
     {
       'text': 'Common / 8 Line <Dark>',
       'colorDesc': '404040',
-      'color': RuColor.common_8,
+      'color': RColor.dark_common_8,
+      'fcolor': Colors.white,
+    },
+    {
+      'text': 'Common / 4 Line <Dark>',
+      'colorDesc': '323232',
+      'color': RColor.dark_common_4,
+      'fcolor': Colors.white,
+    },
+    {
+      'text': 'Common / 2 Line <Dark>',
+      'colorDesc': '242424',
+      'color': RColor.dark_common_2,
       'fcolor': Colors.white,
     },
   ];
@@ -108,98 +119,98 @@ class ColorDemoPage extends StatelessWidget {
     {
       'text': 'Text / Heavy <Light>',
       'colorDesc': '121314',
-      'color': RuColor.textHeavy,
+      'color': RColor.light_text_heavy,
       'fcolor': Colors.white,
     },
     {
       'text': 'Text / Medium <Light>',
       'colorDesc': '5D6872',
-      'color': RuColor.textMedium,
+      'color': RColor.light_text_medium,
       'fcolor': Colors.white,
     },
     {
       'text': 'Text / Lite <Light>',
       'colorDesc': 'B0B8BE',
-      'color': RuColor.textLite,
+      'color': RColor.light_text_lite,
       'fcolor': Colors.white,
     },
     {
       'text': 'Text / Reverse <Light>',
       'colorDesc': 'FFFFFF',
-      'color': RuColor.textReverse
+      'color': RColor.light_text_reverse
     },
     {
       'text': 'BG / Absolute <Light>',
       'colorDesc': 'FFFFFF',
-      'color': RuColor.bgAbsolute
+      'color': RColor.light_bg_absolute
     },
     {
       'text': 'BG / Primary <Light>',
       'colorDesc': 'FFFFFF',
-      'color': RuColor.bgPrimary
+      'color': RColor.light_bg_primary
     },
     {
       'text': 'BG / Primary Elevated <Light>',
       'colorDesc': 'FFFFFF',
-      'color': RuColor.bgPrimaryElevated
+      'color': RColor.light_bg_primary_elevated
     },
     {
       'text': 'BG / Secondary <Light>',
       'colorDesc': 'FAFBFC',
-      'color': RuColor.bgSecondary
+      'color': RColor.light_bg_secondary
     },
     {
       'text': 'BG / Tertiary <Light>',
       'colorDesc': 'FAFAFA',
-      'color': RuColor.bgTertiary
+      'color': RColor.light_bg_tertiary
     },
     {
       'text': 'BG / Reverse <Light>',
       'colorDesc': '000000',
-      'color': RuColor.bgReverse,
+      'color': RColor.light_bg_reverse,
       'fcolor': Colors.white,
     },
     {
       'text': 'Common / 120 Absolute <Light>',
       'colorDesc': '000000',
-      'color': RuColor.common_120,
+      'color': RColor.light_common_120,
       'fcolor': Colors.white,
     },
     {
       'text': 'Common / 100 Primary <Light>',
       'colorDesc': '121314',
-      'color': RuColor.common_100,
+      'color': RColor.light_common_100,
       'fcolor': Colors.white,
     },
     {
       'text': 'Common / 64 Secondary <Light>',
       'colorDesc': '5D6872',
-      'color': RuColor.common_64
+      'color': RColor.light_common_64
     },
     {
       'text': 'Common / 32 Label <Light>',
       'colorDesc': 'B0B8BE',
-      'color': RuColor.common_32
+      'color': RColor.light_common_32
     },
     {
       'text': 'Common / 16 Disable <Light>',
       'colorDesc': 'EBEBEB',
-      'color': RuColor.common_16
+      'color': RColor.light_common_16
     },
     {
       'text': 'Common / 8 Line <Light>',
       'colorDesc': 'E1E5E9',
-      'color': RuColor.common_8
+      'color': RColor.light_common_8
     },
     {
       'text': 'Common / 4 Field <Light>',
       'colorDesc': 'F4F6F8',
-      'color': RuColor.common_4
+      'color': RColor.light_common_4
     },
     {
       'text': 'Common / 2 DisableBg <Light>',
       'colorDesc': 'FAFAFA',
-      'color': RuColor.common_2
+      'color': RColor.light_common_2
     },
   ];
 
@@ -207,97 +218,97 @@ class ColorDemoPage extends StatelessWidget {
     {
       'text': 'White / Pure',
       'colorDesc': 'FFFFFF   100%',
-      'color': RuColor.whitePure,
+      'color': RColor.white_pure,
       'fcolor': Colors.black,
     },
     {
       'text': 'White / Transparent',
       'colorDesc': 'FFFFFF   12%',
-      'color': RuColor.whiteTransparent,
+      'color': RColor.white_t,
       'fcolor': Colors.black,
     },
     {
       'text': 'Black / Pure',
       'colorDesc': '000000   100%',
-      'color': RuColor.blackPure,
+      'color': RColor.black_pure,
       'fcolor': Colors.white,
     },
     {
       'text': 'Black / Transparent',
       'colorDesc': '000000   12%',
-      'color': RuColor.blackTransparent,
+      'color': RColor.black_t,
       'fcolor': Colors.black,
     },
     {
       'text': 'Color / green',
       'colorDesc': '00CA9F   100%',
-      'color': RuColor.green,
+      'color': RColor.green,
       'fcolor': Colors.black,
     },
     {
       'text': '🤔Color / green heavy',
       'colorDesc': '00A179   100%',
-      'color': RuColor.greenHeavy,
+      'color': RColor.green_heavy,
       'fcolor': Colors.black,
     },
     {
       'text': '🤔Color / green transparent',
       'colorDesc': '00CA9F   8%',
-      'color': RuColor.greenTransparent,
+      'color': RColor.green_t,
       'fcolor': Colors.black,
     },
     {
       'text': 'Color / blue',
       'colorDesc': '00A5EB   100%',
-      'color': RuColor.blue,
+      'color': RColor.blue,
       'fcolor': Colors.black,
     },
     {
       'text': '🤔Color / blue heavy',
       'colorDesc': '0084C7   100%',
-      'color': RuColor.blueHeavy,
+      'color': RColor.blue_heavy,
       'fcolor': Colors.black,
     },
     {
       'text': '🤔Color / blue transparent',
       'colorDesc': '0084C7   8%',
-      'color': RuColor.blueTransparent,
+      'color': RColor.blue_t,
       'fcolor': Colors.black,
     },
     {
       'text': 'Color / yellow',
       'colorDesc': 'FFBB08   100%',
-      'color': RuColor.yellow,
+      'color': RColor.yellow,
       'fcolor': Colors.black,
     },
     {
       'text': '🤔Color / yellow heavy',
       'colorDesc': 'DCB504   100%',
-      'color': RuColor.yellowHeavy,
+      'color': RColor.yellow_heavy,
       'fcolor': Colors.black,
     },
     {
       'text': '🤔Color / yellow transparent',
       'colorDesc': 'FFBB08   8%',
-      'color': RuColor.yellowTransparent,
+      'color': RColor.yellow_t,
       'fcolor': Colors.black,
     },
     {
       'text': 'Color / red',
       'colorDesc': 'EF4A41   100%',
-      'color': RuColor.red,
+      'color': RColor.red,
       'fcolor': Colors.black,
     },
     {
       'text': '🤔Color / red heavy',
       'colorDesc': 'CB2628   100%',
-      'color': RuColor.redHeavy,
+      'color': RColor.red_heavy,
       'fcolor': Colors.black,
     },
     {
       'text': '🤔Color / red transparent',
       'colorDesc': 'EF4A41   8%',
-      'color': RuColor.redTransparent,
+      'color': RColor.red_t,
       'fcolor': Colors.black,
     },
   ];
@@ -310,11 +321,11 @@ class ColorDemoPage extends StatelessWidget {
   }) {
     return Container(
       margin: const EdgeInsets.all(12.0),
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       alignment: Alignment.center,
       color: color,
+      width: 400,
       height: 70,
-      // width: 498,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -333,29 +344,41 @@ class ColorDemoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors1 = Get.isDarkMode ? _colorDarkList : _colorLightList;
     return Scaffold(
       appBar: AppBar(title: const Text('color 展示')),
       body: SingleChildScrollView(
         child: Container(
           color: const Color(0xff3D3D3D),
           padding: const EdgeInsets.symmetric(horizontal: 64),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Column(
             children: [
-              Expanded(
-                child: Column(
-                  children: colors1.map((e) {
-                    return _buildColorItem(
-                      text: e['text'],
-                      colorDesc: e['colorDesc'],
-                      color: e['color'],
-                      fcolor: e['fcolor'],
-                    );
-                  }).toList(),
-                ),
+              Wrap(
+                children: [
+                  Column(
+                    children: _colorDarkList.map((e) {
+                      return _buildColorItem(
+                        text: e['text'],
+                        colorDesc: e['colorDesc'],
+                        color: e['color'],
+                        fcolor: e['fcolor'],
+                      );
+                    }).toList(),
+                  ),
+                  Column(
+                    children: _colorLightList.map((e) {
+                      return _buildColorItem(
+                        text: e['text'],
+                        colorDesc: e['colorDesc'],
+                        color: e['color'],
+                        fcolor: e['fcolor'],
+                      );
+                    }).toList(),
+                  ),
+                ],
               ),
-              Expanded(
+              const Divider(),
+              SizedBox(
+                width: 400,
                 child: Column(
                   children: _colorList.map((e) {
                     return _buildColorItem(

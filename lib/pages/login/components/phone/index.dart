@@ -83,7 +83,7 @@ class _PhoneFormState extends State<PhoneForm> {
               ),
         Container(
           margin: const EdgeInsets.only(top: 16, bottom: 8),
-          child: RuButton(
+          child: RButton(
             btnTxt,
             loading: _isLoading,
             isBlock: true,
@@ -95,7 +95,7 @@ class _PhoneFormState extends State<PhoneForm> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    child: RuText('Go Back', color: RuColor.yellow),
+                    child: RText('Go Back', color: RColor.yellow),
                     onTap: () {
                       setState(() {
                         _currMode = 'phone';
@@ -103,10 +103,10 @@ class _PhoneFormState extends State<PhoneForm> {
                       });
                     },
                   ),
-                  const RuText(' | '),
+                  const RText(' | '),
                   InkWell(
                     onTap: _handleGetCode,
-                    child: RuText('Go Back', color: RuColor.yellow),
+                    child: RText('Go Back', color: RColor.yellow),
                   ),
                 ],
               )

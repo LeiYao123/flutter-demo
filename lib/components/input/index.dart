@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tablet/style/color.dart';
 
-class RuInput extends StatelessWidget {
+class RInput extends StatelessWidget {
   final bool? disabled;
   final String? labelText;
   final String? hintText;
@@ -24,7 +24,7 @@ class RuInput extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final FocusNode? focusNode;
 
-  const RuInput({
+  const RInput({
     super.key,
     this.disabled = false,
     required this.labelText,
@@ -48,9 +48,9 @@ class RuInput extends StatelessWidget {
   });
 
   static Widget dollerIcon =
-      Icon(Icons.attach_money, color: RuColor.common_32, size: 16);
+      const Icon(Icons.attach_money, color: RColor.light_common_32, size: 16);
   static Widget percentIcon =
-      Icon(Icons.percent, color: RuColor.common_32, size: 16);
+      const Icon(Icons.percent, color: RColor.light_common_32, size: 16);
 
   Widget? _getIcon(String type) {
     if (type == 'prefix' && prefixIcon == null) return null;
@@ -84,15 +84,15 @@ class RuInput extends StatelessWidget {
         validator: validator,
         onSaved: onSaved,
         onChanged: onChanged,
-        style: TextStyle(
-          color: RuColor.textHeavy,
+        style: const TextStyle(
+          color: RColor.light_text_heavy,
           fontSize: 16,
         ),
         decoration: InputDecoration(
           hintText: hintText,
           labelText: labelText,
           filled: disabled,
-          fillColor: RuColor.common_16,
+          fillColor: RColor.light_common_16,
           errorText: errorText,
           prefixIcon: _getIcon('prefix'),
           suffixIcon: _getIcon('suffix'),
@@ -103,11 +103,11 @@ class RuInput extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: RuColor.common_8),
+            borderSide: const BorderSide(color: RColor.light_common_8),
             borderRadius: BorderRadius.circular(8),
           ),
-          disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: RuColor.common_8),
+          disabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: RColor.light_common_8),
           ),
         ),
       ),

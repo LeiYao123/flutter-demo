@@ -22,7 +22,7 @@ class OrderLayout extends StatelessWidget {
       final isActive = pageIndex == idx;
       return Expanded(
         child: Container(
-          color: isActive ? const Color(0xff282828) : const Color(0XFF161616),
+          color: isActive ? RColor.dark_bg_secondary : RColor.dark_bg_primary,
           margin: EdgeInsets.only(bottom: idx == pageNavs.length ? 0 : 8),
           child: InkWell(
             child: el,
@@ -40,17 +40,17 @@ class OrderLayout extends StatelessWidget {
       children: [
         Container(
           width: 80,
-          color: RuColor.common_120,
+          color: RColor.dark_bg_absolute,
           padding: const EdgeInsets.all(8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 24, bottom: 32),
-                child: RuIcons(
+                child: RIcons(
                   IconPath.menu,
                   size: 32,
-                  color: RuColor.whitePure,
+                  color: RColor.dark_common_120,
                 ),
               ),
               ..._getNavs()
@@ -76,14 +76,13 @@ class NavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final iconColor =
-        isActive! ? const Color(0xffffffff) : const Color(0xff404040);
+    final iconColor = isActive! ? RColor.dark_common_120 : RColor.dark_common_8;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        RuIcons(icon, color: iconColor),
+        RIcons(icon, color: iconColor),
         const SizedBox(height: 4),
-        RuText(label, color: RuColor.yellow, weight: FontWeight.w700),
+        RText(label, color: RColor.yellow, weight: FontWeight.w700),
       ],
     );
   }

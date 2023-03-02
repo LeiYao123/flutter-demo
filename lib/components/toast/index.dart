@@ -9,7 +9,7 @@ class Toast {
     return _getFlushBar(
       message: message,
       icon: const Icon(Icons.done, color: Colors.white),
-      backgroundColor: RuColor.green,
+      backgroundColor: RColor.green,
     );
   }
 
@@ -17,7 +17,7 @@ class Toast {
     return _getFlushBar(
       message: message,
       icon: const Icon(Icons.warning, color: Colors.white),
-      backgroundColor: RuColor.red,
+      backgroundColor: RColor.red,
     );
   }
 
@@ -25,7 +25,7 @@ class Toast {
     return _getFlushBar(
       message: message,
       icon: const Icon(Icons.sms, color: Colors.white),
-      backgroundColor: RuColor.textHeavy,
+      backgroundColor: RColor.light_text_heavy,
     );
   }
 

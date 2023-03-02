@@ -12,7 +12,7 @@ import 'package:tablet/utils/http.dart';
 import 'package:tablet/utils/storage.dart';
 import 'package:tablet/components/toast/index.dart';
 
-final tempColor = RuColor.blackPure;
+const tempColor = RColor.black_pure;
 
 class EffectDemoPage extends StatefulWidget {
   const EffectDemoPage({super.key});
@@ -61,7 +61,6 @@ class _EffectDemoPageState extends State<EffectDemoPage> {
 
   @override
   Widget build(BuildContext context) {
-    print('tempColor $tempColor  原始color ${RuColor.blackPure}');
     return Scaffold(
       appBar: AppBar(
         title: const Text('测试 widget 效果'),
@@ -72,17 +71,17 @@ class _EffectDemoPageState extends State<EffectDemoPage> {
           spacing: 12,
           runSpacing: 12,
           children: <Widget>[
-            RuButton('写入token', onPressed: handleSetToken),
-            RuButton('获取token', onPressed: handleGetToken),
-            RuButton('dio测试', onPressed: handleDio),
-            RuButton('show toast', onPressed: showToast),
+            RButton('写入token', onPressed: handleSetToken),
+            RButton('获取token', onPressed: handleGetToken),
+            RButton('dio测试', onPressed: handleDio),
+            RButton('show toast', onPressed: showToast),
             // ElevatedButton(
             //   child: const Text('sliver page SNH48'),
             //   onPressed: () => Get.toNamed(AppRoutes.sliver),
             // ),
             ElevatedButton(
               style:
-                  ElevatedButton.styleFrom(foregroundColor: RuColor.blackPure),
+                  ElevatedButton.styleFrom(foregroundColor: RColor.black_pure),
               onPressed: () {
                 // 横竖屏切换样式保持不变
                 // Get.to(() => OrientationDemo());
@@ -96,12 +95,12 @@ class _EffectDemoPageState extends State<EffectDemoPage> {
               child: const Text('效果'),
             ),
             const Divider(),
-            Center(
+            const Center(
                 child: Text('测试颜色RuColor.black',
-                    style: TextStyle(color: RuColor.blackPure))),
-            Center(
+                    style: TextStyle(color: RColor.black_pure))),
+            const Center(
                 child: Text('测试颜色RuColor.blue',
-                    style: TextStyle(color: RuColor.blue))),
+                    style: TextStyle(color: RColor.blue))),
             const Divider(),
             ListTile(
               title: const Text('跟随系统'),

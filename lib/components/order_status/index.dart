@@ -19,7 +19,7 @@ class OrderStatus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final icon = RuIcons(pathMap[status]!, size: 20);
+    final icon = RIcons(pathMap[status]!, size: 20);
     if (child != null) {
       return Row(
         children: [

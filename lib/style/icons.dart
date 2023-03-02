@@ -25,7 +25,7 @@ class IconPath {
   static const checked_true = 'assets/icons/t/CheckedTrue.svg';
 }
 
-SvgPicture RuIcons(
+SvgPicture RIcons(
   String svgName, {
   double size = 24,
   Color? color,

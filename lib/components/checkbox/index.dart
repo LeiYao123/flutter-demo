@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:tablet/style/color.dart';
 import 'package:tablet/style/icons.dart';
 
-class RuCheckbox extends StatelessWidget {
+class RCheckbox extends StatelessWidget {
   final bool? isSingle;
   final bool checked;
   final Widget? left;
   final Widget? right;
   final void Function(bool) onChanged;
-  const RuCheckbox({
+  const RCheckbox({
     super.key,
     this.isSingle = false,
     required this.checked,
@@ -20,9 +21,9 @@ class RuCheckbox extends StatelessWidget {
   Widget _buildSingleCheckbox() {
     final path = checked ? IconPath.checked_true : IconPath.checked_false;
     return left == null
-        ? RuIcons(path)
+        ? RIcons(path)
         : Row(
-            children: [RuIcons(path), const SizedBox(width: 8), left!],
+            children: [RIcons(path), const SizedBox(width: 8), left!],
           );
   }
 
@@ -34,7 +35,7 @@ class RuCheckbox extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(8.0)),
         border: Border.all(
-          color: checked ? const Color(0xff121314) : const Color(0xffe1e5e9),
+          color: checked ? RColor.light_common_100 : RColor.light_common_8,
           width: checked ? 2 : 1,
         ),
       ),
