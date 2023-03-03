@@ -129,21 +129,21 @@ class RButton extends StatelessWidget {
   }
 }
 
-class RuIconButton extends StatelessWidget {
+class RIconButton extends StatelessWidget {
   final Widget icon;
   final Color bgColor;
   final bool isOutlined;
-  final BtnSizeEnum size;
+  final double? size;
   final EdgeInsets? margin;
   final Function()? onPressed;
 
-  const RuIconButton({
+  const RIconButton({
     super.key,
     required this.icon,
     required this.bgColor,
     this.onPressed,
     this.isOutlined = false,
-    this.size = BtnSizeEnum.md,
+    this.size = 48,
     this.margin,
   });
 
@@ -152,6 +152,7 @@ class RuIconButton extends StatelessWidget {
     final style = ButtonStyle(
       shape: MaterialStateProperty.all(const CircleBorder()),
       elevation: MaterialStateProperty.all(0),
+      padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
       backgroundColor: isOutlined ? null : MaterialStateProperty.all(bgColor),
       overlayColor: isOutlined
           ? MaterialStateProperty.resolveWith<Color>(
@@ -162,8 +163,8 @@ class RuIconButton extends StatelessWidget {
           : null,
     );
     return Container(
-      width: heightMap[size]!,
-      height: heightMap[size]!,
+      width: size,
+      height: size,
       margin: margin,
       child: isOutlined
           ? OutlinedButton(onPressed: onPressed, style: style, child: icon)

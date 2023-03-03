@@ -15,11 +15,17 @@ Map<OrderStatusEnum, String> pathMap = {
 class OrderStatus extends StatelessWidget {
   final OrderStatusEnum status;
   final Widget? child;
-  const OrderStatus({super.key, required this.status, this.child});
+  final double? size;
+  const OrderStatus({
+    super.key,
+    required this.status,
+    this.child,
+    this.size = 24,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final icon = RIcons(pathMap[status]!, size: 20);
+    final icon = RIcons(pathMap[status]!, size: size!);
     if (child != null) {
       return Row(
         children: [

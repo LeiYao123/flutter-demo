@@ -84,7 +84,7 @@ class OrderTag extends StatelessWidget {
         ),
         child: RText(
           text,
-          color: RColor.light_text_heavy,
+          color: RColor.dark_text_heavy,
           size: 12,
           weight: FontWeight.w700,
         ),

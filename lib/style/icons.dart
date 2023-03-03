@@ -23,9 +23,10 @@ class IconPath {
   static const utensils = 'assets/icons/t/utensils.svg';
   static const checked_false = 'assets/icons/t/CheckedFalse.svg';
   static const checked_true = 'assets/icons/t/CheckedTrue.svg';
+  static const adjustments = 'assets/icons/t/adjustments.svg';
 }
 
-SvgPicture RIcons(
+Widget RIcons(
   String svgName, {
   double size = 24,
   Color? color,

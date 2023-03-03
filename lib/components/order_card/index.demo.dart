@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:tablet/components/order_olo_status/index.dart';
 import 'package:tablet/components/order_status_tab/index.dart';
 
 import 'index.dart';
@@ -39,6 +40,13 @@ class _OrderCardDemoState extends State<OrderCardDemo> {
           width: 400,
           child: Column(
             children: [
+              OrderOLOStatus(
+                isOpen: true,
+                time: '9:45 PM',
+                onPressed: () {
+                  print('open');
+                },
+              ),
               Container(
                 decoration: const BoxDecoration(
                   border: Border(

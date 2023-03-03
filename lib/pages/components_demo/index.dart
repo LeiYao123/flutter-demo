@@ -7,8 +7,10 @@ import 'package:tablet/components/button/button.demo.dart';
 import 'package:tablet/components/input/index.demo.dart';
 import 'package:tablet/components/layout/index.demo.dart';
 import 'package:tablet/components/order_card/index.demo.dart';
+import 'package:tablet/components/order_olo_status/index.demo.dart';
 import 'package:tablet/components/order_status/index.demo.dart';
 import 'package:tablet/components/order_status_tab/index.demo.dart';
+import 'package:tablet/components/order_timeline_card/index.demo.dart';
 import 'package:tablet/components/text/index.dart';
 import 'color.demo.dart';
 import 'icon.demo.dart';
@@ -34,7 +36,7 @@ class ComponentsDemo extends StatelessWidget {
                 const Divider(),
                 Wrap(
                   direction: Axis.horizontal,
-                  spacing: 32,
+                  spacing: 16,
                   runSpacing: 24,
                   children: [
                     RButton(
@@ -46,13 +48,12 @@ class ComponentsDemo extends StatelessWidget {
                       onPressed: () => Get.to(() => const ButtonDemo()),
                     ),
                     RButton(
-                      'icon demo',
-                      onPressed: () => Get.to(() => const IconDemo()),
+                      'checkbox',
+                      onPressed: () => Get.to(() => const CheckboxDemo()),
                     ),
                     RButton(
-                      'order status circle demo',
-                      onPressed: () =>
-                          Get.to(() => const OrderStatusCircleDemo()),
+                      'icon demo',
+                      onPressed: () => Get.to(() => const IconDemo()),
                     ),
                     RButton(
                       'Drawer demo',
@@ -62,9 +63,23 @@ class ComponentsDemo extends StatelessWidget {
                       'input demo',
                       onPressed: () => Get.to(() => const InputDemo()),
                     ),
+                  ],
+                ),
+                const SizedBox(height: 32),
+                const RText('order components 示例'),
+                const Divider(),
+                Wrap(
+                  spacing: 16,
+                  runSpacing: 24,
+                  children: [
                     RButton(
                       'navbar demo',
                       onPressed: () => Get.to(() => const LayoutDemo()),
+                    ),
+                    RButton(
+                      'order status circle demo',
+                      onPressed: () =>
+                          Get.to(() => const OrderStatusCircleDemo()),
                     ),
                     RButton(
                       'order card demo',
@@ -75,8 +90,16 @@ class ComponentsDemo extends StatelessWidget {
                       onPressed: () => Get.to(() => const OrderStatusTabDemo()),
                     ),
                     RButton(
-                      'checkbox',
-                      onPressed: () => Get.to(() => const CheckboxDemo()),
+                      'order timeline demo',
+                      onPressed: () => Get.to(
+                        () => const OrderTimelineCardDemo(),
+                      ),
+                    ),
+                    RButton(
+                      'order olo status demo',
+                      onPressed: () => Get.to(
+                        () => const OrderOLOStatusDemo(),
+                      ),
                     ),
                   ],
                 ),
@@ -84,8 +107,7 @@ class ComponentsDemo extends StatelessWidget {
                 const RText('一些示例 demo'),
                 const Divider(),
                 Wrap(
-                  direction: Axis.horizontal,
-                  spacing: 23,
+                  spacing: 16,
                   runSpacing: 24,
                   children: [
                     RButton('sliver demo',

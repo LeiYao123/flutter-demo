@@ -231,14 +231,14 @@ class ButtonDemo extends StatelessWidget {
   Widget _getIconBtn() {
     return Wrap(
       children: [
-        RuIconButton(
-            icon: RIcons(IconPath.LinedStar, size: 24),
+        RIconButton(
+            icon: RIcons(IconPath.LinedStar),
             bgColor: RColor.green,
             margin: const EdgeInsets.all(16.0),
             onPressed: () {}),
-        RuIconButton(
+        RIconButton(
             isOutlined: true,
-            icon: RIcons(IconPath.SolidStar, size: 24),
+            icon: RIcons(IconPath.SolidStar),
             bgColor: RColor.green,
             margin: const EdgeInsets.all(16.0),
             onPressed: () {}),
