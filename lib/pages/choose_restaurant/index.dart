@@ -173,11 +173,11 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _step == 1
-                    ? RText(e['name'], size: 20, isBold: true)
+                    ? RText(e['name'], size: 20)
                     : Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          RText(e['name'], size: 20, isBold: true),
+                          RText(e['name'], size: 20),
                           const SizedBox(height: 8),
                           RText(e['address'], size: 12, color: Colors.black26),
                         ],
@@ -208,10 +208,8 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: RText(
-          'Select Your ${_step == 1 ? 'Brand' : 'Store'}',
-          isBold: true,
-        ),
+        title: RText('Select Your ${_step == 1 ? 'Brand' : 'Store'}',
+            weight: FontWeight.w700),
         centerTitle: true,
         leadingWidth: 300,
         leading: GestureDetector(
@@ -220,7 +218,7 @@ class _ChooseRestaurantState extends State<ChooseRestaurant> {
             children: [
               const SizedBox(width: 16),
               const Icon(Icons.arrow_back),
-              RText(_step == 1 ? 'LOG OUT' : 'GO BACK', isBold: true),
+              RText(_step == 1 ? 'LOG OUT' : 'GO BACK'),
             ],
           ),
         ),

@@ -4,7 +4,6 @@ import 'package:tablet/style/color.dart';
 class RText extends StatelessWidget {
   final dynamic text;
   final double? size;
-  final bool isBold;
   final FontWeight? weight;
   final Color? color;
   final double? height;
@@ -15,8 +14,7 @@ class RText extends StatelessWidget {
     super.key,
     this.size = 16,
     this.color = RColor.light_common_120,
-    this.isBold = false,
-    this.height = 1,
+    this.height = 1.4,
     this.underline = false,
     this.weight = FontWeight.w400,
     this.textAlign,
@@ -30,7 +28,7 @@ class RText extends StatelessWidget {
       style: TextStyle(
         fontSize: size,
         color: color,
-        fontWeight: isBold ? FontWeight.w700 : weight,
+        fontWeight: weight,
         height: height,
         decoration: underline ? TextDecoration.underline : null,
       ),

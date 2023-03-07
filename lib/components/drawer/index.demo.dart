@@ -65,7 +65,10 @@ class _DrawerDemoState extends State<DrawerDemo> {
 
   RDrawer _getDrawer1() {
     return RDrawer(
-      title: const RText('Draw - 1 - Title', size: 20, isBold: true),
+      title: const RText(
+        'Draw - 1 - Title',
+        size: 20,
+      ),
       footer: Row(children: [
         RButton(
           'Back',
@@ -115,7 +118,10 @@ class _DrawerDemoState extends State<DrawerDemo> {
 
   RDrawer _getDrawer2() {
     return RDrawer(
-      title: const RText('Draw - 2 - Title', size: 20, isBold: true),
+      title: const RText(
+        'Draw - 2 - Title',
+        size: 20,
+      ),
       child: Container(
         color: Colors.blueGrey,
         child: Column(

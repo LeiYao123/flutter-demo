@@ -7,6 +7,8 @@ import 'package:tablet/components/button/button.demo.dart';
 import 'package:tablet/components/input/index.demo.dart';
 import 'package:tablet/components/layout/index.demo.dart';
 import 'package:tablet/components/order_card/index.demo.dart';
+import 'package:tablet/components/order_odd_progress/index.demo.dart';
+import 'package:tablet/components/order_olo_middle_bar/index.demo.dart';
 import 'package:tablet/components/order_olo_status/index.demo.dart';
 import 'package:tablet/components/order_status/index.demo.dart';
 import 'package:tablet/components/order_status_tab/index.demo.dart';
@@ -99,6 +101,18 @@ class ComponentsDemo extends StatelessWidget {
                       'order olo status demo',
                       onPressed: () => Get.to(
                         () => const OrderOLOStatusDemo(),
+                      ),
+                    ),
+                    RButton(
+                      'order olo middle bar',
+                      onPressed: () => Get.to(
+                        () => const OrderOLOMiddleBarDemo(),
+                      ),
+                    ),
+                    RButton(
+                      'order odd progress',
+                      onPressed: () => Get.to(
+                        () => const OrderODDProgressDemo(),
                       ),
                     ),
                   ],

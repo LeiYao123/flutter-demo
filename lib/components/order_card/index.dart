@@ -42,7 +42,7 @@ class OrderCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (tagDesc != null) ...[
-                  OrderTag(text: tagDesc!),
+                  _OrderTag(text: tagDesc!),
                   const SizedBox(height: 4)
                 ],
                 RText(
@@ -59,7 +59,7 @@ class OrderCard extends StatelessWidget {
                 ),
               ],
             ),
-            OrderTime(isAsap: isAsap, text: timeDesc),
+            _OrderTime(isAsap: isAsap, text: timeDesc),
           ],
         ),
       ),
@@ -67,9 +67,9 @@ class OrderCard extends StatelessWidget {
   }
 }
 
-class OrderTag extends StatelessWidget {
+class _OrderTag extends StatelessWidget {
   final String text;
-  const OrderTag({super.key, required this.text});
+  const _OrderTag({required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -93,10 +93,10 @@ class OrderTag extends StatelessWidget {
   }
 }
 
-class OrderTime extends StatelessWidget {
+class _OrderTime extends StatelessWidget {
   final String? text;
   final bool isAsap;
-  const OrderTime({super.key, this.text, required this.isAsap});
+  const _OrderTime({this.text, required this.isAsap});
 
   @override
   Widget build(BuildContext context) {
